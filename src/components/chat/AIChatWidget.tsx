@@ -8,6 +8,120 @@ import pb from '@/lib/pocketbase/client'
 import { streamAgentChat, type DisplayMessage } from '@/lib/skipAi'
 import { useAuth } from '@/hooks/use-auth'
 
+const renderInline = (text: string) => {
+  const parts = text.split(/(\*\*.*?\*\*)/g)
+  return parts.map((part, idx) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={idx} className="font-semibold">
+          {part.slice(2, -2)}
+        </strong>
+      )
+    }
+    return <span key={idx}>{part}</span>
+  })
+}
+
+const renderMessageContent = (content: string) => {
+  const lines = content.split('\n')
+  const result: React.ReactNode[] = []
+  let currentList: {
+    type: 'ul' | 'ol'
+    items: { val?: number; text: string }[]
+  } | null = null
+  let currentParagraph: string[] = []
+
+  const flushParagraph = () => {
+    if (currentParagraph.length > 0) {
+      result.push(
+        <p key={`p-${result.length}`} className="mb-2 last:mb-0">
+          {currentParagraph.map((line, i) => (
+            <span key={i}>
+              {renderInline(line)}
+              {i < currentParagraph.length - 1 && <br />}
+            </span>
+          ))}
+        </p>,
+      )
+      currentParagraph = []
+    }
+  }
+
+  const flushList = () => {
+    if (currentList) {
+      if (currentList.type === 'ul') {
+        result.push(
+          <ul
+            key={`ul-${result.length}`}
+            className="list-disc ml-5 mb-2 space-y-1"
+          >
+            {currentList.items.map((item, i) => (
+              <li key={i}>{renderInline(item.text)}</li>
+            ))}
+          </ul>,
+        )
+      } else {
+        result.push(
+          <ol
+            key={`ol-${result.length}`}
+            className="list-decimal ml-5 mb-2 space-y-1"
+          >
+            {currentList.items.map((item, i) => (
+              <li key={i} value={item.val}>
+                {renderInline(item.text)}
+              </li>
+            ))}
+          </ol>,
+        )
+      }
+      currentList = null
+    }
+  }
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+
+    if (line.trim() === '') {
+      flushParagraph()
+      flushList()
+      continue
+    }
+
+    const ulMatch = line.match(/^(\s*)\*\s+(.*)/)
+    if (ulMatch) {
+      flushParagraph()
+      if (!currentList || currentList.type !== 'ul') {
+        flushList()
+        currentList = { type: 'ul', items: [] }
+      }
+      currentList.items.push({ text: ulMatch[2] })
+      continue
+    }
+
+    const olMatch = line.match(/^(\s*)(\d+)\.\s+(.*)/)
+    if (olMatch) {
+      flushParagraph()
+      if (!currentList || currentList.type !== 'ol') {
+        flushList()
+        currentList = { type: 'ol', items: [] }
+      }
+      currentList.items.push({
+        val: parseInt(olMatch[2], 10),
+        text: olMatch[3],
+      })
+      continue
+    }
+
+    flushList()
+    currentParagraph.push(line)
+  }
+
+  flushParagraph()
+  flushList()
+
+  return <div className="space-y-1">{result}</div>
+}
+
 export function AIChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<DisplayMessage[]>([])
@@ -163,8 +277,9 @@ export function AIChatWidget() {
                   <Bot className="w-4 h-4" />
                 </div>
                 <div className="bg-white border border-[#d8b4a0]/20 p-3 rounded-2xl rounded-tl-sm text-sm shadow-sm text-gray-700 leading-relaxed">
-                  Olá! Sou a assistente virtual do Ateliê Andressa Nicolau. Como
-                  posso te ajudar a criar memórias deliciosas hoje?
+                  {renderMessageContent(
+                    'Olá! Sou a assistente virtual do Ateliê Andressa Nicolau. Como posso te ajudar a criar memórias deliciosas hoje?',
+                  )}
                 </div>
               </div>
 
@@ -196,7 +311,9 @@ export function AIChatWidget() {
                         : 'bg-white border border-[#d8b4a0]/20 text-gray-700 rounded-tl-sm',
                     )}
                   >
-                    {m.content}
+                    {m.role === 'user'
+                      ? m.content
+                      : renderMessageContent(m.content)}
                   </div>
                 </div>
               ))}
