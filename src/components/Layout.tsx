@@ -10,6 +10,7 @@ import {
   SheetTrigger,
   SheetTitle,
   SheetHeader,
+  SheetClose,
 } from '@/components/ui/sheet'
 
 const NavBar = () => {
@@ -29,7 +30,7 @@ const NavBar = () => {
   ]
 
   const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
     href: string,
   ) => {
     e.preventDefault()
@@ -69,7 +70,10 @@ const NavBar = () => {
               {link.name}
             </a>
           ))}
-          <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
+          <Button
+            onClick={(e) => handleNavClick(e, '#contato')}
+            className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105"
+          >
             Solicitar Orçamento
           </Button>
         </div>
@@ -90,18 +94,24 @@ const NavBar = () => {
               </SheetHeader>
               <div className="flex flex-col space-y-8 mt-12">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-3xl font-serif text-foreground/80 hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  <SheetClose asChild key={link.name}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="text-3xl font-serif text-foreground/80 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  </SheetClose>
                 ))}
-                <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-8 h-14 text-lg shadow-lg">
-                  Orçamento via WhatsApp
-                </Button>
+                <SheetClose asChild>
+                  <Button
+                    onClick={(e) => handleNavClick(e, '#contato')}
+                    className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground w-full mt-8 h-14 text-lg shadow-lg"
+                  >
+                    Solicitar Orçamento
+                  </Button>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>

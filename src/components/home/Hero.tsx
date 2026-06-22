@@ -3,7 +3,10 @@ import { Button } from '@/components/ui/button'
 
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-[70vh] bg-primary rounded-[2.5rem] overflow-hidden flex items-center shadow-lg">
+    <section
+      id="inicio"
+      className="relative w-full min-h-[70vh] bg-primary rounded-[2.5rem] overflow-hidden flex items-center shadow-lg"
+    >
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
         <img
           src="https://img.usecurling.com/p/1600/900?q=elegant%20cake%20texture&color=pink"
@@ -28,13 +31,17 @@ export const Hero = () => {
           className="rounded-full text-lg px-8 py-7 h-auto bg-foreground hover:bg-foreground/90 text-background shadow-xl hover:shadow-2xl transition-all duration-300 group"
         >
           <a
-            href="https://wa.me/5511981756815"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contato"
+            onClick={(e) => {
+              e.preventDefault()
+              document
+                .querySelector('#contato')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }}
             className="flex items-center gap-3"
           >
             <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
-            FAÇA SEU ORÇAMENTO
+            SOLICITAR ORÇAMENTO
           </a>
         </Button>
       </div>

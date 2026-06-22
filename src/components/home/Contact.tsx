@@ -89,7 +89,7 @@ export const Contact = () => {
   }
 
   return (
-    <section className="w-full py-16">
+    <section id="contato" className="w-full py-16">
       <div className="bg-card rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-border max-w-3xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-4 text-foreground">

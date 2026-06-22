@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 
 export const About = () => {
   return (
-    <section className="w-full py-12 md:py-24">
+    <section id="sobre" className="w-full py-12 md:py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div className="flex flex-col justify-center px-4 md:px-0 lg:pr-12 order-2 md:order-1">
           <h2 className="text-3xl md:text-5xl font-bold mb-8 text-foreground tracking-tight">

@@ -30,7 +30,7 @@ const categories = [
 
 export const Portfolio = () => {
   return (
-    <section className="w-full py-16">
+    <section id="produtos" className="w-full py-16">
       <div className="mb-12 text-center md:text-left">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground tracking-tight">
           Criações exclusivas para momentos especiais
