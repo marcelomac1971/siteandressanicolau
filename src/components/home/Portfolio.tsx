@@ -1,71 +1,83 @@
-import { cn } from '@/lib/utils'
+import { ArrowRight, Heart } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 const categories = [
   {
-    title: 'Bolos de Casamento',
-    image: 'https://img.usecurling.com/p/800/1000?q=wedding%20cake',
-    className: 'md:col-span-2 md:row-span-2 h-[400px] md:h-[600px]',
+    title: 'BOLOS DECORADOS',
+    image: 'https://img.usecurling.com/p/600/600?q=decorated%20cake',
   },
   {
-    title: 'Bolos Decorados',
-    image: 'https://img.usecurling.com/p/600/400?q=decorated%20cake',
-    className: 'md:col-span-1 md:row-span-1 h-[280px]',
+    title: 'CUPCAKES',
+    image: 'https://img.usecurling.com/p/600/600?q=cupcakes',
   },
   {
-    title: 'Doces Finos',
-    image: 'https://img.usecurling.com/p/600/400?q=fine%20sweets',
-    className: 'md:col-span-1 md:row-span-1 h-[280px]',
+    title: 'DOCES FINOS',
+    image: 'https://img.usecurling.com/p/600/600?q=fine%20sweets',
   },
   {
-    title: 'Cupcakes',
-    image: 'https://img.usecurling.com/p/600/400?q=cupcakes',
-    className: 'md:col-span-1 md:row-span-1 h-[280px]',
+    title: 'BOLOS DE CASAMENTO',
+    image: 'https://img.usecurling.com/p/600/600?q=wedding%20cake',
   },
   {
-    title: 'Doces Personalizados',
-    image: 'https://img.usecurling.com/p/600/400?q=custom%20pastries',
-    className: 'md:col-span-1 md:row-span-1 h-[280px]',
+    title: 'DOCES PERSONALIZADOS',
+    image: 'https://img.usecurling.com/p/600/600?q=custom%20pastries',
   },
 ]
 
 export const Portfolio = () => {
   return (
-    <section id="produtos" className="w-full py-16">
-      <div className="mb-12 text-center md:text-left">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground tracking-tight">
-          Criações exclusivas para momentos especiais
-        </h2>
-        <p className="text-foreground/70 text-lg font-light max-w-2xl">
-          Navegue pelo nosso portfólio e inspire-se com as infinitas
-          possibilidades de transformar açúcar em arte.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
-        {categories.map((cat, idx) => (
-          <div
-            key={idx}
-            className={cn(
-              'group relative overflow-hidden rounded-[2rem] bg-muted shadow-sm',
-              cat.className,
-            )}
-          >
-            <div className="absolute inset-0">
-              <img
-                src={cat.image}
-                alt={cat.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+    <section id="produtos" className="w-full py-24 bg-background">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+          <div>
+            <div className="flex items-center gap-2 mb-4 opacity-70 uppercase tracking-widest text-xs font-light text-foreground">
+              <span>Bolos e Doces</span>
+              <Heart strokeWidth={1} className="w-3 h-3" />
             </div>
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] font-normal text-foreground">
+              Criações exclusivas
+              <br />
+              <span className="italic text-foreground/80">
+                para momentos especiais.
+              </span>
+            </h2>
+          </div>
 
-            <div className="relative h-full flex flex-col justify-end p-8">
-              <h3 className="text-white font-medium text-2xl tracking-wide">
+          <Button
+            variant="outline"
+            asChild
+            className="rounded-none border-foreground/20 text-foreground hover:bg-foreground hover:text-background bg-transparent uppercase tracking-wider text-[10px] px-6 py-5 group"
+          >
+            <a href="#produtos" className="flex items-center gap-3">
+              VER GALERIA COMPLETA
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          {categories.map((cat, idx) => (
+            <div
+              key={idx}
+              className="group flex flex-col items-center text-center cursor-pointer"
+            >
+              <div className="w-full aspect-square overflow-hidden bg-muted mb-4">
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <Heart
+                strokeWidth={1}
+                className="w-4 h-4 text-foreground/40 mb-2 group-hover:text-primary transition-colors"
+              />
+              <h3 className="text-[10px] font-semibold tracking-widest text-foreground uppercase">
                 {cat.title}
               </h3>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )
