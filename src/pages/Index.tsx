@@ -1,10 +1,23 @@
-/* Home Page - Replace this page layout, components, content, behavior with what you want and translate to the language of the user */
+/* Main Index Page - Assembling the grid sections */
+import { HeroSection } from '@/components/home/HeroSection'
+import { VisualPrototype } from '@/components/home/VisualPrototype'
+import { FeedbackLoop } from '@/components/home/FeedbackLoop'
+import { PlatformCapabilities } from '@/components/home/PlatformCapabilities'
+import { FinalCTA } from '@/components/home/FinalCTA'
+
 const Index = () => {
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-6">
-        This is a example page ready to be rewritten with your own content
-      </h1>
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+      {/* Row 1 */}
+      <HeroSection />
+      <VisualPrototype />
+
+      {/* Row 2 */}
+      <FeedbackLoop />
+      <PlatformCapabilities />
+
+      {/* Row 3 */}
+      <FinalCTA />
     </div>
   )
 }
