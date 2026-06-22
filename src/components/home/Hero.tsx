@@ -20,7 +20,7 @@ export const Hero = () => {
           <p className="text-xs uppercase tracking-[0.2em] font-light mb-6 text-white/80">
             Onde cada detalhe se torna inesquecível
           </p>
-          <h1 className="text-5xl md:text-6xl lg:text-[5rem] font-serif leading-[1.1] mb-6 font-normal">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-6 font-normal">
             Bolos que contam histórias.
             <br />
             <span className="italic text-white/90">
