@@ -26,7 +26,7 @@ const NavBar = () => {
     { name: 'Início', href: '#inicio' },
     { name: 'Produtos', href: '#produtos' },
     { name: 'Sobre', href: '#sobre' },
-    { name: 'Contato', href: '#contato' },
+    { name: 'Contato', href: '#info-contato' },
   ]
 
   const handleNavClick = (

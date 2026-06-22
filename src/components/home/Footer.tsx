@@ -2,7 +2,10 @@ import { Instagram, MapPin, Phone, Clock } from 'lucide-react'
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-foreground text-background rounded-[2.5rem] p-10 md:p-16 mt-8">
+    <footer
+      id="info-contato"
+      className="w-full bg-foreground text-background rounded-[2.5rem] p-10 md:p-16 mt-8"
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="lg:col-span-2">
           <h2 className="text-3xl font-bold mb-4 text-white">
