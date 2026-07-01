@@ -17,10 +17,7 @@ export const Hero = () => {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-white mt-12 md:mt-0">
-          <p className="text-xs uppercase tracking-[0.2em] font-light mb-6 text-white/80">
-            Onde cada detalhe se torna inesquecível
-          </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-6 font-normal">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-8 font-normal">
             Bolos que contam histórias.
             <br />
             <span className="italic text-white/90">

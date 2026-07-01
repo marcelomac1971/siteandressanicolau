@@ -7,6 +7,7 @@ import {
   Clock,
   Send,
 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
   return (
@@ -126,12 +127,18 @@ export const Footer = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-[10px] uppercase tracking-wider font-light">
           <p>© 2024 Ateliê Andressa Nicolau. Todos os direitos reservados.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white/80 transition-colors">
+            <Link
+              to="/politica-de-privacidade"
+              className="hover:text-white/80 transition-colors"
+            >
               Política de Privacidade
-            </a>
-            <a href="#" className="hover:text-white/80 transition-colors">
+            </Link>
+            <Link
+              to="/termos-de-uso"
+              className="hover:text-white/80 transition-colors"
+            >
               Termos de Uso
-            </a>
+            </Link>
           </div>
         </div>
       </div>
