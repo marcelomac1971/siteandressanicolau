@@ -21,9 +21,9 @@ export const Hero = () => {
             Bolos que contam histórias.
             <br />
             <span className="italic text-white/90">
-              Feitos com amor,
+              Transformando simples momentos em
               <br />
-              pensados para você.
+              memórias inesquecíveis
             </span>
           </h1>
 
