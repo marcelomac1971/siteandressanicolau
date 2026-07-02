@@ -1,0 +1,22 @@
+.chat-scroll-area [data-radix-scroll-area-viewport] {
+  scroll-behavior: smooth;
+}
+
+.chat-scroll-area
+  [data-radix-scroll-area-scrollbar][data-orientation='vertical'] {
+  width: 8px;
+  background-color: rgba(216, 180, 160, 0.08);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.chat-scroll-area [data-radix-scroll-area-thumb] {
+  background-color: rgba(216, 180, 160, 0.6) !important;
+  min-height: 40px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.chat-scroll-area [data-radix-scroll-area-thumb]:hover {
+  background-color: rgba(216, 180, 160, 0.9) !important;
+}

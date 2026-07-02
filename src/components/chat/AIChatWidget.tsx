@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
+import '@/components/chat/chat-styles.css'
 import pb from '@/lib/pocketbase/client'
 import { streamAgentChat, type DisplayMessage } from '@/lib/skipAi'
 
@@ -135,14 +136,31 @@ export function AIChatWidget() {
     }
     return sid
   })
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const scrollAreaRef = useRef<HTMLDivElement>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
 
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+  const scrollToBottom = () => {
+    const viewport = scrollAreaRef.current?.querySelector(
+      '[data-radix-scroll-area-viewport]',
+    ) as HTMLElement | null
+    if (viewport) {
+      viewport.scrollTo({
+        top: viewport.scrollHeight,
+        behavior: 'smooth',
+      })
     }
-  }, [messages])
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages, isLoading])
+
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(scrollToBottom, 100)
+      return () => clearTimeout(timer)
+    }
+  }, [isOpen])
 
   useEffect(() => {
     return () => {
@@ -305,8 +323,11 @@ export function AIChatWidget() {
             </Button>
           </div>
 
-          <ScrollArea className="flex-1 p-4 bg-[#faf8f5]">
-            <div className="space-y-4" ref={scrollRef}>
+          <ScrollArea
+            ref={scrollAreaRef}
+            className="flex-1 p-4 bg-[#faf8f5] chat-scroll-area"
+          >
+            <div className="space-y-4">
               <div className="flex items-start space-x-2">
                 <div className="w-8 h-8 rounded-full bg-[#d8b4a0] flex items-center justify-center text-white shrink-0 shadow-sm">
                   <Bot className="w-4 h-4" />
