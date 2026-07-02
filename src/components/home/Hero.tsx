@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Bot } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const Hero = () => {
@@ -10,6 +10,10 @@ export const Hero = () => {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const handleOpenChat = () => {
+    window.dispatchEvent(new CustomEvent('open-ai-chat'))
+  }
+
   return (
     <section
       id="inicio"
@@ -17,6 +21,9 @@ export const Hero = () => {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-white mt-12 md:mt-0">
+          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-white/60 font-sans mb-4">
+            Detalhes que encantam
+          </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal">
             Bolos que contam histórias.
           </h1>
@@ -29,20 +36,31 @@ export const Hero = () => {
             insumos selecionados, garantindo sabor e acabamento impecável.
           </p>
 
-          <Button
-            variant="outline"
-            asChild
-            className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
-          >
-            <a
-              href="#produtos"
-              onClick={(e) => handleScroll(e, '#produtos')}
-              className="flex items-center gap-3"
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Button
+              variant="outline"
+              asChild
+              className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
             >
-              CONHEÇA NOSSOS BOLOS
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </Button>
+              <a
+                href="#produtos"
+                onClick={(e) => handleScroll(e, '#produtos')}
+                className="flex items-center gap-3"
+              >
+                CONHEÇA NOSSOS BOLOS
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
+
+            <Button
+              variant="outline"
+              onClick={handleOpenChat}
+              className="rounded-none border-primary/60 text-primary hover:bg-primary hover:text-white bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
+            >
+              FAÇA SEU ORÇAMENTO
+              <Bot className="w-4 h-4 ml-3 group-hover:scale-110 transition-transform" />
+            </Button>
+          </div>
         </div>
 
         <div className="relative w-full md:w-1/2 h-[500px] md:h-[800px] flex items-center justify-center">

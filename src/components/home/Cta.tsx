@@ -1,19 +1,8 @@
-import { useState } from 'react'
 import { MessageCircle, Heart, Bot } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog'
 
 export const Cta = () => {
-  const [open, setOpen] = useState(false)
-
   const handleOpenChat = () => {
-    setOpen(false)
     window.dispatchEvent(new CustomEvent('open-ai-chat'))
   }
 
@@ -58,45 +47,26 @@ export const Cta = () => {
           Vamos criar algo inesquecível para celebrar!
         </p>
 
-        <Button
-          variant="outline"
-          onClick={() => setOpen(true)}
-          className="rounded-none border-white/40 text-white hover:bg-white hover:text-primary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
-        >
-          FAÇA SEU ORÇAMENTO
-          <MessageCircle className="w-4 h-4 ml-3 group-hover:scale-110 transition-transform" />
-        </Button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button
+            variant="outline"
+            onClick={handleOpenChat}
+            className="rounded-none border-white/40 text-white hover:bg-white hover:text-primary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
+          >
+            FAÇA SEU ORÇAMENTO
+            <Bot className="w-4 h-4 ml-3 group-hover:scale-110 transition-transform" />
+          </Button>
 
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent className="rounded-2xl max-w-md">
-            <DialogHeader>
-              <DialogTitle className="font-serif text-xl text-foreground">
-                Como prefere falar com a gente?
-              </DialogTitle>
-              <DialogDescription className="text-foreground/60">
-                Escolha a melhor forma para você iniciar seu orçamento.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="flex flex-col gap-4 mt-4">
-              <a
-                href="https://wa.me/5511999999999"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full rounded-xl border border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white py-4 text-sm font-medium tracking-wide transition-colors"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Fale no WhatsApp
-              </a>
-              <button
-                onClick={handleOpenChat}
-                className="flex items-center justify-center gap-3 w-full rounded-xl bg-[#d8b4a0] text-white hover:bg-[#c9a38f] py-4 text-sm font-medium tracking-wide transition-colors"
-              >
-                <Bot className="w-5 h-5" />
-                Iniciar conversa no assistente
-              </button>
-            </div>
-          </DialogContent>
-        </Dialog>
+          <a
+            href="https://wa.me/5511999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-none border-white/40 text-white hover:bg-white hover:text-primary bg-transparent uppercase tracking-wider text-xs px-8 py-6 transition-colors"
+          >
+            FALAR NO WHATSAPP
+            <MessageCircle className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </section>
   )
