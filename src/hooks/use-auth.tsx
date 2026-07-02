@@ -43,19 +43,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
       }
 
-      if (!pb.authStore.isValid) {
-        // Create an anonymous guest session for chat interactions
-        try {
-          const email = `guest_${Math.random().toString(36).substring(2, 10)}@example.com`
-          const password = Math.random().toString(36).substring(2, 18) + 'A1!'
-          await pb
-            .collection('users')
-            .create({ email, password, passwordConfirm: password })
-          await pb.collection('users').authWithPassword(email, password)
-        } catch (err) {
-          console.error('Failed to create guest session', err)
-        }
-      }
       setLoading(false)
     }
 
