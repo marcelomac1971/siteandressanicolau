@@ -146,6 +146,12 @@ export function AIChatWidget() {
     }
   }, [])
 
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true)
+    window.addEventListener('open-ai-chat', handleOpenChat)
+    return () => window.removeEventListener('open-ai-chat', handleOpenChat)
+  }, [])
+
   const handleSend = async () => {
     if (!input.trim() || isLoading || !isAuthenticated) return
 

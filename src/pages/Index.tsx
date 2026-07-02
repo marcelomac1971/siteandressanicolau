@@ -4,6 +4,7 @@ import { About } from '@/components/home/About'
 import { Portfolio } from '@/components/home/Portfolio'
 import { Cta } from '@/components/home/Cta'
 import { Footer } from '@/components/home/Footer'
+import { AIChatWidget } from '@/components/chat/AIChatWidget'
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Portfolio />
       <Cta />
       <Footer />
+      <AIChatWidget />
     </div>
   )
 }

@@ -17,20 +17,18 @@ export const Hero = () => {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-white mt-12 md:mt-0">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-8 font-normal">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal">
             Bolos que contam histórias.
-            <br />
-            <span className="italic text-white/90">
-              Transformando simples momentos em
-              <br />
-              memórias inesquecíveis
-            </span>
           </h1>
+          <p className="text-2xl md:text-3xl lg:text-4xl italic text-white/90 font-serif leading-[1.2] mb-8">
+            Transformando simples momentos em
+            <br />
+            memórias inesquecíveis
+          </p>
 
           <p className="text-sm md:text-base text-white/80 font-light max-w-md mb-10 leading-relaxed">
-            No Ateliê Andressa Nicolau, cada criação é única. Bolos e doces
-            personalizados com ingredientes selecionados e acabamento impecável
-            para transformar momentos em memórias doces.
+            Nossos produtos são exclusivos e personalizados, produzidos com
+            insumos selecionados, garantindo sabor e acabamento impecável.
           </p>
 
           <Button

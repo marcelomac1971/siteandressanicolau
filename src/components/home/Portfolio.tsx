@@ -3,24 +3,20 @@ import { Button } from '@/components/ui/button'
 
 const categories = [
   {
-    title: 'BOLOS DECORADOS',
-    image: 'https://img.usecurling.com/p/600/600?q=decorated%20cake',
+    title: 'BOLOS',
+    image: 'https://img.usecurling.com/p/600/600?q=elegant%20cake',
   },
   {
-    title: 'CUPCAKES',
-    image: 'https://img.usecurling.com/p/600/600?q=cupcakes',
+    title: 'BOLOS PERSONALIZADOS',
+    image: 'https://img.usecurling.com/p/600/600?q=custom%20decorated%20cake',
   },
   {
-    title: 'DOCES FINOS',
-    image: 'https://img.usecurling.com/p/600/600?q=fine%20sweets',
-  },
-  {
-    title: 'BOLOS DE CASAMENTO',
-    image: 'https://img.usecurling.com/p/600/600?q=wedding%20cake',
+    title: 'DOCES',
+    image: 'https://img.usecurling.com/p/600/600?q=fine%20sweets%20dessert',
   },
   {
     title: 'DOCES PERSONALIZADOS',
-    image: 'https://img.usecurling.com/p/600/600?q=custom%20pastries',
+    image: 'https://img.usecurling.com/p/600/600?q=custom%20pastries%20sweets',
   },
 ]
 
@@ -31,14 +27,14 @@ export const Portfolio = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
             <div className="flex items-center gap-2 mb-4 opacity-70 uppercase tracking-widest text-xs font-light text-foreground">
-              <span>Bolos e Doces</span>
+              <span>Nossas Criações</span>
               <Heart strokeWidth={1} className="w-3 h-3" />
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] font-normal text-foreground">
-              Criações exclusivas
+              Inspirações para celebrar
               <br />
               <span className="italic text-foreground/80">
-                para momentos especiais.
+                momentos inesquecíveis.
               </span>
             </h2>
           </div>
@@ -55,7 +51,7 @@ export const Portfolio = () => {
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {categories.map((cat, idx) => (
             <div
               key={idx}

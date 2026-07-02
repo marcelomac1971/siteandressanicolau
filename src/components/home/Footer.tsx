@@ -31,8 +31,8 @@ export const Footer = () => {
               </div>
             </div>
             <p className="text-white/60 font-light text-xs max-w-[250px] mb-8 leading-relaxed">
-              Transformamos ingredientes em memórias doces.
-            </p>
+              Sabores transformados em doces memoráveis.
+            </p>{' '}
             <div className="flex gap-4 opacity-80">
               <a href="#" className="hover:text-white transition-colors">
                 <Instagram className="w-4 h-4" />
@@ -72,7 +72,9 @@ export const Footer = () => {
             <ul className="space-y-6 text-white/70 font-light text-xs">
               <li className="flex items-start gap-4">
                 <Clock className="w-4 h-4 opacity-50 shrink-0" />
-                <span>Segunda a sexta: 9h às 18h</span>
+                <span>
+                  Segunda a Sexta das 9hs às 18hs, Sábados das 8hs às 12hs
+                </span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="w-4 h-4 opacity-50 shrink-0" />
