@@ -82,7 +82,9 @@ const NavBar = () => {
             </a>
           ))}
           <Button
-            onClick={(e) => handleNavClick(e, '#contato')}
+            onClick={() =>
+              window.dispatchEvent(new CustomEvent('open-ai-chat'))
+            }
             variant="outline"
             className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-6 py-5"
           >
@@ -122,7 +124,9 @@ const NavBar = () => {
                 ))}
                 <SheetClose asChild>
                   <Button
-                    onClick={(e) => handleNavClick(e, '#contato')}
+                    onClick={() =>
+                      window.dispatchEvent(new CustomEvent('open-ai-chat'))
+                    }
                     variant="outline"
                     className="border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent w-full mt-8 h-14 tracking-widest uppercase text-xs"
                   >

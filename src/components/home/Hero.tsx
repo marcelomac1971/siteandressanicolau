@@ -22,7 +22,7 @@ export const Hero = () => {
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-white mt-12 md:mt-0">
           <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-white/60 font-sans mb-4">
-            Detalhes que encantam
+            DETALHES QUE ENCANTAM
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal">
             Bolos que contam histórias.
