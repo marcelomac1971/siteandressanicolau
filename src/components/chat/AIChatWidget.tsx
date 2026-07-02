@@ -6,7 +6,6 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 import pb from '@/lib/pocketbase/client'
 import { streamAgentChat, type DisplayMessage } from '@/lib/skipAi'
-import { useAuth } from '@/hooks/use-auth'
 
 const renderInline = (text: string) => {
   const parts = text.split(/(\*\*.*?\*\*)/g)
@@ -130,7 +129,6 @@ export function AIChatWidget() {
   const [conversationId, setConversationId] = useState<string | null>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
-  const { isAuthenticated } = useAuth()
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -153,7 +151,7 @@ export function AIChatWidget() {
   }, [])
 
   const handleSend = async () => {
-    if (!input.trim() || isLoading || !isAuthenticated) return
+    if (!input.trim() || isLoading) return
 
     const userMsg: DisplayMessage = {
       id: Date.now().toString(),
@@ -169,14 +167,18 @@ export function AIChatWidget() {
     abortControllerRef.current = new AbortController()
 
     try {
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      }
+      if (pb.authStore.token) {
+        headers['Authorization'] = pb.authStore.token
+      }
+
       const res = await fetch(
         `${import.meta.env.VITE_POCKETBASE_URL}/backend/v1/chat/atelie`,
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: pb.authStore.token,
-          },
+          headers,
           body: JSON.stringify({
             message: userMsg.content,
             conversation_id: conversationId,
@@ -357,12 +359,12 @@ export function AIChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Digite sua mensagem..."
                 className="flex-1 rounded-full border-[#d8b4a0]/30 focus-visible:ring-[#d8b4a0] shadow-sm"
-                disabled={isLoading || !isAuthenticated}
+                disabled={isLoading}
               />
               <Button
                 type="submit"
                 size="icon"
-                disabled={isLoading || !input.trim() || !isAuthenticated}
+                disabled={isLoading || !input.trim()}
                 className="rounded-full bg-[#d8b4a0] hover:bg-[#c9a38f] text-white shrink-0 shadow-sm transition-colors"
               >
                 <Send className="w-4 h-4" />
