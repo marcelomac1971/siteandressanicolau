@@ -127,6 +127,14 @@ export function AIChatWidget() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [conversationId, setConversationId] = useState<string | null>(null)
+  const [sessionId] = useState(() => {
+    let sid = localStorage.getItem('chat_session_id')
+    if (!sid) {
+      sid = 'session_' + Math.random().toString(36).substring(2, 15)
+      localStorage.setItem('chat_session_id', sid)
+    }
+    return sid
+  })
   const scrollRef = useRef<HTMLDivElement>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
 
@@ -182,6 +190,7 @@ export function AIChatWidget() {
           body: JSON.stringify({
             message: userMsg.content,
             conversation_id: conversationId,
+            session_id: sessionId,
           }),
           signal: abortControllerRef.current.signal,
         },

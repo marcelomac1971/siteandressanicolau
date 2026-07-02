@@ -4,15 +4,11 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
     let userId = e.auth?.id
 
     if (!userId) {
-      try {
-        const guestRecord = $app.findAuthRecordByEmail(
-          '_pb_users_auth_',
-          'anonymous@atelie.local',
-        )
-        userId = guestRecord.id
-      } catch (_) {
-        return e.json(503, { error: 'Servico temporariamente indisponivel' })
-      }
+      userId = body.session_id
+    }
+
+    if (!userId) {
+      return e.badRequestError('session_id is required for anonymous users')
     }
 
     if (!body.message?.trim()) return e.badRequestError('message is required')
