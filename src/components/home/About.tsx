@@ -1,5 +1,4 @@
-import { ArrowRight, Heart } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Heart } from 'lucide-react'
 
 export const About = () => {
   return (
@@ -25,7 +24,7 @@ export const About = () => {
               Paixão que virou criação.
               <br />
               <span className="italic text-white/90">
-                Doçura que fica na memória.
+                Sabor que fica na memória.
               </span>
             </h2>
 
@@ -40,17 +39,6 @@ export const About = () => {
                 emocionam e encantam.
               </p>
             </div>
-
-            <Button
-              variant="outline"
-              asChild
-              className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-8 py-6 w-fit group"
-            >
-              <a href="#sobre" className="flex items-center gap-3">
-                CONHEÇA MINHA HISTÓRIA
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
           </div>
         </div>
       </div>
