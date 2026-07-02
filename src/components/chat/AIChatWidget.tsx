@@ -209,9 +209,10 @@ export function AIChatWidget() {
 
       const result = await streamAgentChat(res, {
         onChunk: (_, full) => {
+          const cleanContent = full.replace(/\[REDIRECT:[\s\S]*/i, '').trim()
           setMessages((prev) =>
             prev.map((m) =>
-              m.id === assistantMsgId ? { ...m, content: full } : m,
+              m.id === assistantMsgId ? { ...m, content: cleanContent } : m,
             ),
           )
         },
@@ -220,12 +221,29 @@ export function AIChatWidget() {
 
       if (!conversationId) setConversationId(result.conversation_id)
 
+      let finalContent = result.content
+      const redirectMatch = finalContent.match(
+        /\[REDIRECT:\s*([^,]+)\s*,\s*([^\]]+)\]?/i,
+      )
+      if (redirectMatch) {
+        finalContent = finalContent.replace(/\[REDIRECT:[\s\S]*/i, '').trim()
+        const leadName = redirectMatch[1].trim()
+        const leadEvent = redirectMatch[2].trim()
+
+        setTimeout(() => {
+          const text = encodeURIComponent(
+            `Olá Andressa! Sou ${leadName} e gostaria de dar continuidade ao meu orçamento para o evento (${leadEvent}).`,
+          )
+          window.open(`https://wa.me/5511999999999?text=${text}`, '_blank')
+        }, 1500)
+      }
+
       setMessages((prev) =>
         prev.map((m) =>
           m.id === assistantMsgId
             ? {
                 ...m,
-                content: result.content,
+                content: finalContent,
                 id: result.message_id,
                 citations: result.citations,
               }
