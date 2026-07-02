@@ -30,13 +30,10 @@ export const About = () => {
 
             <div className="space-y-6 text-white/80 text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
               <p>
-                Desde sempre, a confeitaria é o que me move e me conecta. No
-                Ateliê Andressa Nicolau, cada bolo e cada doce carrega mais do
-                que sabor: carrega histórias, sentimentos e momentos únicos.
-              </p>
-              <p>
-                Meu propósito é transformar ingredientes em experiências que
-                emocionam e encantam.
+                Acreditamos que todo momento especial merece ser lembrado. Foi
+                dessa paixão por transformar comemorações em memórias que nasceu
+                o Ateliê Andressa Nicolau. Cada bolo é criado para emocionar,
+                surpreender e fazer parte da história de quem o recebe.
               </p>
             </div>
           </div>

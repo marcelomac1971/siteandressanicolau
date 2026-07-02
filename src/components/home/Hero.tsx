@@ -20,10 +20,8 @@ export const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal">
             Bolos que contam histórias.
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl italic text-white/90 font-serif leading-[1.2] mb-8">
-            Transformando simples momentos em
-            <br />
-            memórias inesquecíveis
+          <p className="text-sm md:text-base lg:text-lg italic text-white/80 font-serif leading-[1.3] mb-8 max-w-md">
+            Transformando simples momentos em memórias inesquecíveis
           </p>
 
           <p className="text-sm md:text-base text-white/80 font-light max-w-md mb-10 leading-relaxed">
