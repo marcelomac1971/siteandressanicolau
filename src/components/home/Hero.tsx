@@ -71,7 +71,7 @@ export const Hero = () => {
             className="w-full max-w-[500px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
 
-          <div className="absolute top-[28%] right-0 md:right-4 lg:right-8 w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex bg-white/5 backdrop-blur-sm animate-float">
+          <div className="absolute top-[8%] right-2 md:right-6 lg:right-12 w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex bg-white/10 backdrop-blur-md animate-float z-20 shadow-lg">
             <div className="text-white flex flex-col items-center">
               <span className="text-xs md:text-sm tracking-widest uppercase font-light">
                 Feito à mão
