@@ -71,13 +71,13 @@ export const Hero = () => {
             className="w-full max-w-[500px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
 
-          <div className="absolute top-[8%] right-0 w-24 h-24 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex">
+          <div className="absolute top-[28%] right-0 md:right-4 lg:right-8 w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex bg-white/5 backdrop-blur-sm animate-float">
             <div className="text-white flex flex-col items-center">
-              <span className="text-[10px] tracking-widest uppercase">
+              <span className="text-xs md:text-sm tracking-widest uppercase font-light">
                 Feito à mão
               </span>
               <svg
-                className="w-8 h-8 my-1"
+                className="w-10 h-10 md:w-12 md:h-12 my-1 md:my-2"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -85,7 +85,7 @@ export const Hero = () => {
               >
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
-              <span className="text-[10px] tracking-widest uppercase">
+              <span className="text-xs md:text-sm tracking-widest uppercase font-light">
                 Com amor
               </span>
             </div>
