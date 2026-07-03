@@ -71,7 +71,7 @@ export const Hero = () => {
             className="w-full max-w-[500px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
 
-          <div className="absolute top-[15%] right-0 w-32 h-32 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex">
+          <div className="absolute top-[8%] right-0 w-24 h-24 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex">
             <div className="text-white flex flex-col items-center">
               <span className="text-[10px] tracking-widest uppercase">
                 Feito à mão
