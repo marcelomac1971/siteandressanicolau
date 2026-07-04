@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import { Bot, X, Send, User, Phone } from 'lucide-react'
+import { Bot, X, Send, User, Phone, CheckCircle2 } from 'lucide-react'
+import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -252,6 +253,23 @@ export function AIChatWidget() {
         const leadName = redirectMatch[1].trim()
         const leadEvent = redirectMatch[2].trim()
 
+        toast.success('Orçamento salvo com sucesso!', {
+          description:
+            'Seus dados foram registrados. Redirecionando para o WhatsApp para finalizar.',
+          duration: 5000,
+        })
+
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: (Date.now() + 2).toString(),
+            role: 'assistant',
+            content:
+              '✅ Seus dados foram salvos com sucesso! Estou te redirecionando para o WhatsApp para darmos continuidade ao seu orçamento. Aguarde um instante...',
+            created: new Date().toISOString(),
+          },
+        ])
+
         setTimeout(() => {
           window.open(
             whatsappLink(
@@ -259,7 +277,7 @@ export function AIChatWidget() {
             ),
             '_blank',
           )
-        }, 1500)
+        }, 2000)
       }
 
       setMessages((prev) =>

@@ -8,7 +8,7 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
       try {
         const anon = $app.findAuthRecordByEmail(
           '_pb_users_auth_',
-          'anonymous@atelie.local',
+          'anonymous@atelieandressanicolau.local',
         )
         userId = anon.id
       } catch (_) {
