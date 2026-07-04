@@ -1,5 +1,5 @@
 export const WHATSAPP_NUMBER =
-  import.meta.env.VITE_WHATSAPP_NUMBER || '11995642949'
+  import.meta.env.VITE_WHATSAPP_NUMBER || '11981756815'
 
 export const WHATSAPP_BASE_LINK = `https://wa.me/55${WHATSAPP_NUMBER}`
 
