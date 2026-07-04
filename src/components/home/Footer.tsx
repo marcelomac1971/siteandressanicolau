@@ -8,6 +8,7 @@ import {
   Send,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { WHATSAPP_BASE_LINK, WHATSAPP_PHONE_DISPLAY } from '@/lib/whatsapp'
 
 export const Footer = () => {
   return (
@@ -79,10 +80,10 @@ export const Footer = () => {
               <li className="flex items-center gap-4">
                 <Phone className="w-4 h-4 opacity-50 shrink-0" />
                 <a
-                  href="https://wa.me/5511999999999"
+                  href={WHATSAPP_BASE_LINK}
                   className="hover:text-white transition-colors"
                 >
-                  (11) 99999-9999
+                  {WHATSAPP_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-4">

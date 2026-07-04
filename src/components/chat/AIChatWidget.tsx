@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import '@/components/chat/chat-styles.css'
 import pb from '@/lib/pocketbase/client'
 import { streamAgentChat, type DisplayMessage } from '@/lib/skipAi'
+import { whatsappLink } from '@/lib/whatsapp'
 
 const renderInline = (text: string) => {
   const parts = text.split(/(\*\*.*?\*\*)/g)
@@ -250,10 +251,12 @@ export function AIChatWidget() {
         const leadEvent = redirectMatch[2].trim()
 
         setTimeout(() => {
-          const text = encodeURIComponent(
-            `Olá Andressa! Sou ${leadName} e gostaria de dar continuidade ao meu orçamento para o evento (${leadEvent}).`,
+          window.open(
+            whatsappLink(
+              `Olá Andressa! Sou ${leadName} e gostaria de dar continuidade ao meu orçamento para o evento (${leadEvent}).`,
+            ),
+            '_blank',
           )
-          window.open(`https://wa.me/5511999999999?text=${text}`, '_blank')
         }, 1500)
       }
 
@@ -298,7 +301,7 @@ export function AIChatWidget() {
     })
 
     const text = encodeURIComponent(summary)
-    window.open(`https://wa.me/5511999999999?text=${text}`, '_blank')
+    window.open(whatsappLink(summary), '_blank')
   }
 
   return (

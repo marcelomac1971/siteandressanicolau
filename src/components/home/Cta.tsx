@@ -1,5 +1,6 @@
 import { MessageCircle, Heart, Bot } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { whatsappLink } from '@/lib/whatsapp'
 
 export const Cta = () => {
   const handleOpenChat = () => {
@@ -58,7 +59,7 @@ export const Cta = () => {
           </Button>
 
           <a
-            href="https://wa.me/5511999999999"
+            href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 rounded-none border-white/40 text-white hover:bg-white hover:text-primary bg-transparent uppercase tracking-wider text-xs px-8 py-6 transition-colors"
