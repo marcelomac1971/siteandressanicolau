@@ -8,7 +8,7 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
       try {
         const anon = $app.findAuthRecordByEmail(
           '_pb_users_auth_',
-          'anonymous@atelie.com',
+          'anonymous@atelie.local',
         )
         userId = anon.id
       } catch (_) {
@@ -20,7 +20,9 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
     }
 
     if (!userId) {
-      return e.badRequestError('session_id is required for anonymous users')
+      return e.badRequestError(
+        'Não foi possível identificar o usuário. Tente recarregar a página.',
+      )
     }
 
     const message = typeof body.message === 'string' ? body.message.trim() : ''
