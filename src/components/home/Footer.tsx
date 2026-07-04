@@ -35,13 +35,28 @@ export const Footer = () => {
               Sabores transformados em doces memoráveis.
             </p>{' '}
             <div className="flex gap-4 opacity-80">
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 <svg
                   className="w-4 h-4"
                   viewBox="0 0 24 24"
@@ -50,7 +65,12 @@ export const Footer = () => {
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.198 0 7.451 2.989 7.451 6.971 0 4.153-2.64 7.506-6.305 7.506-1.221 0-2.37-.635-2.763-1.385l-.753 2.873c-.272 1.042-1.01 2.345-1.503 3.141 1.16.353 2.406.544 3.693.544 6.621 0 11.987-5.367 11.987-11.987C24.004 5.367 18.638 0 12.017 0z" />
                 </svg>
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 <svg
                   className="w-4 h-4"
                   viewBox="0 0 24 24"
@@ -78,12 +98,14 @@ export const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <Phone className="w-4 h-4 opacity-50 shrink-0" />
                 <a
                   href={WHATSAPP_BASE_LINK}
-                  className="hover:text-white transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 hover:text-white transition-colors"
                 >
-                  {WHATSAPP_PHONE_DISPLAY}
+                  <Phone className="w-4 h-4 opacity-50 shrink-0" />
+                  <span>{WHATSAPP_PHONE_DISPLAY}</span>
                 </a>
               </li>
               <li className="flex items-center gap-4">

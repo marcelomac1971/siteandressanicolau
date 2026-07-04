@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate, useLocation } from 'react-router-dom'
 import { MessageCircle, Menu, Heart } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
@@ -15,6 +15,8 @@ import {
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -35,9 +37,20 @@ const NavBar = () => {
     href: string,
   ) => {
     e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+
+    if (location.pathname !== '/') {
+      navigate('/' + href)
+      setTimeout(() => {
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }
 
