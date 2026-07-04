@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { AIChatWidget } from '@/components/chat/AIChatWidget'
+import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import {
   Sheet,
   SheetContent,
@@ -163,6 +164,7 @@ export default function Layout() {
         <Outlet />
       </div>
       <AIChatWidget />
+      <FloatingWhatsApp />
     </main>
   )
 }
