@@ -131,8 +131,10 @@ export function AIChatWidget() {
   const [conversationId, setConversationId] = useState<string | null>(null)
   const [sessionId] = useState(() => {
     let sid = localStorage.getItem('chat_session_id')
-    if (!sid) {
-      sid = 'session_' + Math.random().toString(36).substring(2, 15)
+    if (!sid || sid.length !== 15) {
+      sid = Array.from(crypto.getRandomValues(new Uint8Array(15)))
+        .map((b) => 'abcdefghijklmnopqrstuvwxyz0123456789'[b % 36])
+        .join('')
       localStorage.setItem('chat_session_id', sid)
     }
     return sid

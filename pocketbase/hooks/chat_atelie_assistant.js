@@ -4,7 +4,15 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
     let userId = e.auth?.id
 
     if (!userId) {
-      userId = body.session_id
+      try {
+        const anon = $app.findAuthRecordByEmail(
+          '_pb_users_auth_',
+          'anonymous@atelie.com',
+        )
+        userId = anon.id
+      } catch (_) {
+        userId = body.session_id
+      }
     }
 
     if (!userId) {
@@ -30,6 +38,7 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
     e.response.header().set('X-Conversation-Id', conv.id)
     $response.stream(e, iter)
   } catch (err) {
+    $app.logger().error('chat agent error', 'error', err.message || String(err))
     if (err instanceof SkipAiConfigError)
       return e.json(503, { error: 'AI temporarily unavailable' })
     if (err instanceof SkipAiAgentsError) {
