@@ -44,18 +44,20 @@ export const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/atelieandressanicolau"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://br.pinterest.com/atelieandressanicolau"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
+                aria-label="Pinterest"
               >
                 <svg
                   className="w-5 h-5"

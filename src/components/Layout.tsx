@@ -1,5 +1,5 @@
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { MessageCircle, Menu, Heart } from 'lucide-react'
+import { MessageCircle, Menu, Heart, Instagram } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -95,6 +95,15 @@ const NavBar = () => {
               {link.name}
             </a>
           ))}
+          <a
+            href="https://www.instagram.com/atelieandressanicolau/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors flex items-center"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
           <Button
             onClick={() =>
               window.dispatchEvent(new CustomEvent('open-ai-chat'))
@@ -136,6 +145,17 @@ const NavBar = () => {
                     </a>
                   </SheetClose>
                 ))}
+                <div className="flex gap-4 items-center pt-2 pb-4">
+                  <a
+                    href="https://www.instagram.com/atelieandressanicolau/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-white transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                </div>
                 <SheetClose asChild>
                   <Button
                     onClick={() =>
