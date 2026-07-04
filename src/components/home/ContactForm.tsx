@@ -66,8 +66,9 @@ export const ContactForm = () => {
 
   if (success) {
     return (
-      <section id="contato" className="w-full py-24 bg-background">
+      <section className="w-full py-24 bg-background">
         <div className="max-w-2xl mx-auto px-6 text-center">
+          {' '}
           <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-10 h-10 text-primary" />
           </div>
@@ -85,7 +86,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <section id="contato" className="w-full py-24 bg-background">
+    <section className="w-full py-24 bg-background">
       <div className="max-w-2xl mx-auto px-6">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4 uppercase tracking-widest text-xs text-muted-foreground">
