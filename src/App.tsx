@@ -8,6 +8,9 @@ import NotFound from './pages/NotFound'
 import Layout from './components/Layout'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfUse from './pages/TermsOfUse'
+import Login from './pages/Login'
+import Admin from './pages/Admin'
+import { ProtectedRoute } from './components/admin/ProtectedRoute'
 import { AuthProvider } from './hooks/use-auth'
 
 // ONLY IMPORT AND RENDER WORKING PAGES, NEVER ADD PLACEHOLDER COMPONENTS OR PAGES IN THIS FILE
@@ -29,8 +32,16 @@ const App = () => (
               element={<PrivacyPolicy />}
             />
             <Route path="/termos-de-uso" element={<TermsOfUse />} />
-            {/* ADD ALL CUSTOM ROUTES MUST BE ADDED HERE */}
           </Route>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </TooltipProvider>

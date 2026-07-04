@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 export const Footer = () => {
   return (
-    <footer id="contato" className="w-full bg-[#635B56] text-white pt-20 pb-8">
+    <footer id="rodape" className="w-full bg-[#635B56] text-white pt-20 pb-8">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="md:col-span-4 flex flex-col items-start md:items-start text-center md:text-left">

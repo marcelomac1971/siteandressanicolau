@@ -3,6 +3,7 @@ import { Features } from '@/components/home/Features'
 import { About } from '@/components/home/About'
 import { Portfolio } from '@/components/home/Portfolio'
 import { Cta } from '@/components/home/Cta'
+import { ContactForm } from '@/components/home/ContactForm'
 import { Footer } from '@/components/home/Footer'
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
       <About />
       <Portfolio />
       <Cta />
+      <ContactForm />
       <Footer />
     </div>
   )
