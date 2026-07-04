@@ -195,6 +195,7 @@ export function AIChatWidget() {
     setIsLoading(true)
 
     abortControllerRef.current = new AbortController()
+    const assistantMsgId = (Date.now() + 1).toString()
 
     try {
       const headers: Record<string, string> = {
@@ -218,7 +219,6 @@ export function AIChatWidget() {
         },
       )
 
-      const assistantMsgId = (Date.now() + 1).toString()
       setMessages((prev) => [
         ...prev,
         {
@@ -276,15 +276,35 @@ export function AIChatWidget() {
       )
     } catch (err: any) {
       if (err.name !== 'AbortError') {
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: Date.now().toString(),
-            role: 'assistant',
-            content: 'Desculpe, ocorreu um erro. Tente novamente mais tarde.',
-            created: new Date().toISOString(),
-          },
-        ])
+        const isNetworkError =
+          err instanceof TypeError ||
+          (typeof err.message === 'string' &&
+            err.message.toLowerCase().includes('fetch'))
+        const errorContent = isNetworkError
+          ? 'Não consegui conectar ao servidor. Verifique sua conexão e tente novamente.'
+          : err?.message
+            ? `Ocorreu um erro: ${err.message}. Tente novamente em instantes.`
+            : 'Desculpe, ocorreu um erro inesperado. Tente novamente mais tarde.'
+
+        setMessages((prev) => {
+          const hasEmptyAssistant = prev.some(
+            (m) => m.id === assistantMsgId && m.content === '',
+          )
+          if (hasEmptyAssistant) {
+            return prev.map((m) =>
+              m.id === assistantMsgId ? { ...m, content: errorContent } : m,
+            )
+          }
+          return [
+            ...prev,
+            {
+              id: Date.now().toString(),
+              role: 'assistant',
+              content: errorContent,
+              created: new Date().toISOString(),
+            },
+          ]
+        })
       }
     } finally {
       setIsLoading(false)
@@ -302,7 +322,6 @@ export function AIChatWidget() {
       summary += `_${role}:_ ${m.content}\n`
     })
 
-    const text = encodeURIComponent(summary)
     window.open(whatsappLink(summary), '_blank')
   }
 

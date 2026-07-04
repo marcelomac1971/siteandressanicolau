@@ -1,4 +1,5 @@
 routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
+  let convId = ''
   try {
     const body = e.requestInfo().body || {}
     let userId = e.auth?.id
@@ -11,7 +12,10 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
         )
         userId = anon.id
       } catch (_) {
-        userId = body.session_id
+        const sid = body.session_id
+        if (typeof sid === 'string' && sid.trim().length > 0) {
+          userId = sid.trim()
+        }
       }
     }
 
@@ -19,17 +23,25 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
       return e.badRequestError('session_id is required for anonymous users')
     }
 
-    if (!body.message?.trim()) return e.badRequestError('message is required')
+    const message = typeof body.message === 'string' ? body.message.trim() : ''
+    if (!message) {
+      return e.badRequestError('message is required')
+    }
+
+    if (message.length > 5000) {
+      return e.badRequestError('message is too long (max 5000 characters)')
+    }
 
     const conv = $ai.agent('atelie-assistant').getOrCreateConversation({
       user_id: userId,
       id: body.conversation_id || null,
     })
+    convId = conv.id
 
     const iter = $ai.agent('atelie-assistant').chat({
       user_id: userId,
       conversation_id: conv.id,
-      message: body.message,
+      message: message,
       stream: true,
     })
 
@@ -38,21 +50,43 @@ routerAdd('POST', '/backend/v1/chat/atelie', (e) => {
     e.response.header().set('X-Conversation-Id', conv.id)
     $response.stream(e, iter)
   } catch (err) {
-    $app.logger().error('chat agent error', 'error', err.message || String(err))
-    if (err instanceof SkipAiConfigError)
-      return e.json(503, { error: 'AI temporarily unavailable' })
+    $app
+      .logger()
+      .error(
+        'chat agent error',
+        'error',
+        err.message || String(err),
+        'conversationId',
+        convId,
+      )
+
+    if (err instanceof SkipAiConfigError) {
+      return e.json(503, {
+        error:
+          'O assistente de IA está temporariamente indisponível. Tente novamente em instantes.',
+      })
+    }
     if (err instanceof SkipAiAgentsError) {
       const status = err.status || 500
       return e.json(status, {
-        error: status >= 500 ? 'agent request failed' : err.message,
+        error:
+          status >= 500
+            ? 'Não foi possível processar sua mensagem agora. Tente novamente.'
+            : err.message,
       })
     }
     if (err instanceof SkipAiError) {
       const status = err.status || 502
       return e.json(status, {
-        error: status >= 500 ? 'AI temporarily unavailable' : err.message,
+        error:
+          status >= 500
+            ? 'O serviço de IA está temporariamente indisponível.'
+            : err.message,
       })
     }
-    throw err
+
+    return e.json(500, {
+      error: 'Erro interno do servidor. Tente novamente mais tarde.',
+    })
   }
 })
