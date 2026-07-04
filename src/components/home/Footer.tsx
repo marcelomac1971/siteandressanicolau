@@ -141,6 +141,9 @@ export const Footer = () => {
             >
               Termos de Uso
             </Link>
+            <Link to="/login" className="hover:text-white/80 transition-colors">
+              Área Administrativa
+            </Link>
           </div>
         </div>
       </div>

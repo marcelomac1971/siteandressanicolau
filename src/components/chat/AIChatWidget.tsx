@@ -138,6 +138,7 @@ export function AIChatWidget() {
   })
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const scrollToBottom = () => {
     const viewport = scrollAreaRef.current?.querySelector(
@@ -282,6 +283,7 @@ export function AIChatWidget() {
       }
     } finally {
       setIsLoading(false)
+      setTimeout(() => inputRef.current?.focus(), 0)
     }
   }
 
@@ -403,6 +405,7 @@ export function AIChatWidget() {
               className="flex items-center space-x-2"
             >
               <Input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Digite sua mensagem..."
