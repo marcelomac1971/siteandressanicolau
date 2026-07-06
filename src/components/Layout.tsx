@@ -3,8 +3,8 @@ import { MessageCircle, Menu, Heart, Instagram } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { AIChatWidget } from '@/components/chat/AIChatWidget'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
+import { whatsappLink } from '@/lib/whatsapp'
 import {
   Sheet,
   SheetContent,
@@ -104,15 +104,14 @@ const NavBar = () => {
           >
             <Instagram className="w-4 h-4" />
           </a>
-          <Button
-            onClick={() =>
-              window.dispatchEvent(new CustomEvent('open-ai-chat'))
-            }
-            variant="outline"
-            className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap"
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-none border border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap transition-colors"
           >
             Faça seu orçamento <MessageCircle className="w-4 h-4 ml-2" />
-          </Button>
+          </a>
         </div>
 
         {/* Mobile Navigation */}
@@ -157,15 +156,14 @@ const NavBar = () => {
                   </a>
                 </div>
                 <SheetClose asChild>
-                  <Button
-                    onClick={() =>
-                      window.dispatchEvent(new CustomEvent('open-ai-chat'))
-                    }
-                    variant="outline"
-                    className="border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap"
+                  <a
+                    href={whatsappLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center border border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap transition-colors"
                   >
                     Faça seu orçamento
-                  </Button>
+                  </a>
                 </SheetClose>
               </div>
             </SheetContent>
@@ -183,7 +181,6 @@ export default function Layout() {
       <div className="w-full">
         <Outlet />
       </div>
-      <AIChatWidget />
       <FloatingWhatsApp />
     </main>
   )

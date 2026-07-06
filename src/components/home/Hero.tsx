@@ -1,4 +1,4 @@
-import { ArrowRight, Bot } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const Hero = () => {
@@ -8,10 +8,6 @@ export const Hero = () => {
   ) => {
     e.preventDefault()
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const handleOpenChat = () => {
-    window.dispatchEvent(new CustomEvent('open-ai-chat'))
   }
 
   return (
@@ -51,27 +47,18 @@ export const Hero = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-
-            <Button
-              variant="outline"
-              onClick={handleOpenChat}
-              className="rounded-none border-primary/60 text-primary hover:bg-primary hover:text-white bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
-            >
-              FAÇA SEU ORÇAMENTO
-              <Bot className="w-4 h-4 ml-3 group-hover:scale-110 transition-transform" />
-            </Button>
           </div>
         </div>
 
-        <div className="relative w-full md:w-1/2 h-[500px] md:h-[800px] flex items-center justify-center">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[500px] aspect-square rounded-full bg-white/5 mix-blend-overlay blur-3xl"></div>
+        <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] flex items-center justify-center">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[380px] aspect-square rounded-full bg-white/5 mix-blend-overlay blur-3xl"></div>
           <img
             src="https://img.usecurling.com/p/800/1000?q=elegant%20wedding%20cake&color=pink"
             alt="Bolo elegante"
-            className="w-full max-w-[500px] h-auto object-contain relative z-10 drop-shadow-2xl"
+            className="w-full max-w-[360px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
 
-          <div className="absolute top-[8%] right-2 md:right-6 lg:right-12 w-32 h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex bg-white/10 backdrop-blur-md animate-float z-20 shadow-lg">
+          <div className="absolute top-[10%] right-4 md:right-8 lg:right-16 w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex bg-white/10 backdrop-blur-md animate-float z-20 shadow-lg">
             <div className="text-white flex flex-col items-center">
               <span className="text-xs md:text-sm tracking-widest uppercase font-light">
                 Feito à mão
