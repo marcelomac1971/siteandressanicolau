@@ -1,26 +1,37 @@
+import { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowRight, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-
-const categories = [
-  {
-    title: 'BOLOS',
-    image: 'https://img.usecurling.com/p/600/600?q=elegant%20cake',
-  },
-  {
-    title: 'BOLOS PERSONALIZADOS',
-    image: 'https://img.usecurling.com/p/600/600?q=custom%20decorated%20cake',
-  },
-  {
-    title: 'DOCES',
-    image: 'https://img.usecurling.com/p/600/600?q=fine%20sweets%20dessert',
-  },
-  {
-    title: 'DOCES PERSONALIZADOS',
-    image: 'https://img.usecurling.com/p/600/600?q=custom%20pastries%20sweets',
-  },
-]
+import {
+  getPortfolioItems,
+  getPortfolioImage,
+  type PortfolioItem,
+} from '@/services/portfolio'
+import { useRealtime } from '@/hooks/use-realtime'
 
 export const Portfolio = () => {
+  const [items, setItems] = useState<PortfolioItem[]>([])
+  const [loading, setLoading] = useState(true)
+
+  const loadItems = useCallback(async () => {
+    try {
+      const data = await getPortfolioItems()
+      setItems(data.slice(0, 8))
+    } catch {
+      /* noop */
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    loadItems()
+  }, [loadItems])
+
+  useRealtime('portfolio', () => {
+    loadItems()
+  })
+
   return (
     <section id="produtos" className="w-full py-24 bg-background">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
@@ -44,36 +55,50 @@ export const Portfolio = () => {
             asChild
             className="rounded-none border-foreground/20 text-foreground hover:bg-foreground hover:text-background bg-transparent uppercase tracking-wider text-[10px] px-6 py-5 group"
           >
-            <a href="#produtos" className="flex items-center gap-3">
+            <Link to="/galeria" className="flex items-center gap-3">
               VER GALERIA COMPLETA
               <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {categories.map((cat, idx) => (
-            <div
-              key={idx}
-              className="group flex flex-col items-center text-center cursor-pointer"
-            >
-              <div className="w-full aspect-square overflow-hidden bg-muted mb-4">
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <Heart
-                strokeWidth={1}
-                className="w-4 h-4 text-foreground/40 mb-2 group-hover:text-primary transition-colors"
+        {loading ? (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div
+                key={i}
+                className="aspect-square rounded-2xl bg-muted animate-pulse"
               />
-              <h3 className="text-[10px] font-semibold tracking-widest text-foreground uppercase">
-                {cat.title}
-              </h3>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="group flex flex-col items-center text-center cursor-pointer"
+              >
+                <div className="w-full aspect-square overflow-hidden rounded-2xl bg-muted mb-4">
+                  <img
+                    src={getPortfolioImage(item)}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <Heart
+                  strokeWidth={1}
+                  className="w-4 h-4 text-foreground/40 mb-2 group-hover:text-primary transition-colors"
+                />
+                <h3 className="text-[10px] font-semibold tracking-widest text-foreground uppercase">
+                  {item.title}
+                </h3>
+                <p className="text-[9px] text-muted-foreground mt-1">
+                  {item.category}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
