@@ -34,7 +34,7 @@ migrate(
       record.setEmail('contato@atelieandressanicolau.com.br')
       record.setVerified(true)
     }
-    record.setPassword('ADM@123')
+    record.setPassword('ADM@1234')
     record.set('name', 'Administrador')
     record.set('requires_password_change', false)
 

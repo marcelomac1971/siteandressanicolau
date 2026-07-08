@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-08T14:37:16.541Z",
+  "generatedAt": "2026-07-08T14:45:01.869Z",
   "collections": [
     {
       "name": "users",
@@ -176,6 +176,52 @@
           "name": "email",
           "type": "email",
           "required": true,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "site_settings",
+      "type": "base",
+      "apiRules": {
+        "list": "",
+        "view": "",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "key",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "content_text",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "content_image",
+          "type": "file",
+          "required": false,
           "system": false
         },
         {
