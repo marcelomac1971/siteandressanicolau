@@ -126,7 +126,10 @@ export default function AdminLeads() {
                 <TableRow>
                   <TableHead>Data</TableHead>
                   <TableHead>Nome</TableHead>
-                  <TableHead className="hidden md:table-cell">E-mail</TableHead>
+                  <TableHead className="hidden lg:table-cell">E-mail</TableHead>
+                  <TableHead className="hidden md:table-cell">
+                    Telefone
+                  </TableHead>
                   <TableHead>Evento</TableHead>
                   <TableHead className="text-right">Ações</TableHead>
                 </TableRow>
@@ -145,8 +148,11 @@ export default function AdminLeads() {
                       {format(new Date(lead.created), 'dd/MM/yyyy')}
                     </TableCell>
                     <TableCell className="font-medium">{lead.name}</TableCell>
-                    <TableCell className="hidden md:table-cell text-sm text-muted-foreground">
+                    <TableCell className="hidden lg:table-cell text-sm text-muted-foreground">
                       {lead.email}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-sm text-muted-foreground">
+                      {lead.phone}
                     </TableCell>
                     <TableCell>
                       <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary whitespace-nowrap">
