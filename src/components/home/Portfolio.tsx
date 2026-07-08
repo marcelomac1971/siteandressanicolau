@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import {
   getPortfolioItems,
   getPortfolioImage,
+  portfolioCategories,
   type PortfolioItem,
 } from '@/services/portfolio'
 import { useRealtime } from '@/hooks/use-realtime'
@@ -16,7 +17,19 @@ export const Portfolio = () => {
   const loadItems = useCallback(async () => {
     try {
       const data = await getPortfolioItems()
-      setItems(data.slice(0, 8))
+      const categoryItems = portfolioCategories.map((cat) => {
+        const item = data.find((d) => d.category === cat)
+        if (item) return item
+        return {
+          id: `dummy-${cat}`,
+          title: cat,
+          category: cat,
+          image: '',
+          created: '',
+          updated: '',
+        }
+      })
+      setItems(categoryItems)
     } catch {
       /* noop */
     } finally {
@@ -63,39 +76,34 @@ export const Portfolio = () => {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-square rounded-2xl bg-muted animate-pulse"
-              />
+              <div key={i} className="aspect-square bg-muted animate-pulse" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {items.map((item) => (
-              <div
+              <Link
+                to="/galeria"
                 key={item.id}
                 className="group flex flex-col items-center text-center cursor-pointer"
               >
-                <div className="w-full aspect-square overflow-hidden rounded-2xl bg-muted mb-4">
+                <div className="w-full aspect-square overflow-hidden bg-muted mb-4">
                   <img
                     src={getPortfolioImage(item)}
-                    alt={item.title}
+                    alt={item.category}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <Heart
                   strokeWidth={1}
-                  className="w-4 h-4 text-foreground/40 mb-2 group-hover:text-primary transition-colors"
+                  className="w-4 h-4 text-foreground/40 mb-3 group-hover:text-primary transition-colors"
                 />
-                <h3 className="text-[10px] font-semibold tracking-widest text-foreground uppercase">
-                  {item.title}
-                </h3>
-                <p className="text-[9px] text-muted-foreground mt-1">
+                <h3 className="text-[10px] md:text-[11px] font-serif font-semibold tracking-widest text-foreground uppercase">
                   {item.category}
-                </p>
-              </div>
+                </h3>
+              </Link>
             ))}
           </div>
         )}
