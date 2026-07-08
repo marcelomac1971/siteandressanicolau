@@ -1,7 +1,7 @@
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, LogOut, Inbox, Image } from 'lucide-react'
+import { ArrowLeft, LogOut, Settings, Image } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function Admin() {
@@ -15,7 +15,7 @@ export default function Admin() {
   }
 
   const navItems = [
-    { to: '/admin/leads', label: 'Orçamentos', icon: Inbox },
+    { to: '/admin/settings', label: 'Configurações', icon: Settings },
     { to: '/admin/portfolio', label: 'Portfólio', icon: Image },
   ]
 

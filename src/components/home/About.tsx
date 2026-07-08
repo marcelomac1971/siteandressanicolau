@@ -1,6 +1,29 @@
+import { useState, useEffect } from 'react'
 import { Heart } from 'lucide-react'
+import { getSetting, getSettingImageUrl } from '@/services/site-settings'
+
+const DEFAULT_ABOUT_IMAGE =
+  'https://img.usecurling.com/p/800/1000?q=pastry%20chef%20decorating%20cake&color=pink'
+
+const DEFAULT_ABOUT_TEXT =
+  'Me chamo Andressa Nicolau, sou gastrônoma, confeiteira e professora. Há mais de 12 anos transformo paixão em doces que contam histórias. Cada receita é pensada com carinho e criada para levar mais doçura, afeto e encanto aos seus momentos especiais. Aqui, tudo é feito de forma personalizada, com ingredientes selecionados e atenção a cada detalhe, porque acredito que um doce perfeito começa no cuidado com o que usamos e com quem irá receber. Para garantir a excelência e a qualidade que você merece, trabalhamos com um prazo de 2 a 10 dias para a produção das encomendas. Seja muito bem-vindo(a)! É um prazer adoçar a sua história.'
 
 export const About = () => {
+  const [aboutImage, setAboutImage] = useState<string>(DEFAULT_ABOUT_IMAGE)
+  const [aboutText, setAboutText] = useState<string>(DEFAULT_ABOUT_TEXT)
+
+  useEffect(() => {
+    const loadAbout = async () => {
+      const setting = await getSetting('about_section')
+      if (setting) {
+        const url = getSettingImageUrl(setting)
+        if (url) setAboutImage(url)
+        if (setting.content_text) setAboutText(setting.content_text)
+      }
+    }
+    loadAbout()
+  }, [])
+
   return (
     <section id="sobre" className="w-full bg-secondary py-24 text-white">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
@@ -8,7 +31,7 @@ export const About = () => {
           <div className="relative aspect-[3/4] md:aspect-[4/5] w-full max-w-md mx-auto order-2 md:order-1">
             <div className="absolute inset-0 border border-white/20 translate-x-4 translate-y-4"></div>
             <img
-              src="https://img.usecurling.com/p/800/1000?q=pastry%20chef%20decorating%20cake&color=pink"
+              src={aboutImage}
               alt="Andressa Nicolau decorando bolo"
               className="w-full h-full object-cover relative z-10"
             />
@@ -29,12 +52,7 @@ export const About = () => {
             </h2>
 
             <div className="space-y-6 text-white/80 text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
-              <p>
-                Acreditamos que todo momento especial merece ser lembrado. Foi
-                dessa paixão por transformar comemorações em memórias que nasceu
-                o Ateliê Andressa Nicolau. Cada bolo é criado para emocionar,
-                surpreender e fazer parte da história de quem o recebe.
-              </p>
+              <p className="whitespace-pre-wrap">{aboutText}</p>
             </div>
           </div>
         </div>

@@ -1,7 +1,25 @@
+import { useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { getSetting, getSettingImageUrl } from '@/services/site-settings'
+
+const DEFAULT_HERO_IMAGE =
+  'https://img.usecurling.com/p/800/1000?q=elegant%20wedding%20cake&color=pink'
 
 export const Hero = () => {
+  const [heroImage, setHeroImage] = useState<string>(DEFAULT_HERO_IMAGE)
+
+  useEffect(() => {
+    const loadHero = async () => {
+      const setting = await getSetting('hero_section')
+      if (setting) {
+        const url = getSettingImageUrl(setting)
+        if (url) setHeroImage(url)
+      }
+    }
+    loadHero()
+  }, [])
+
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
@@ -53,7 +71,7 @@ export const Hero = () => {
         <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] flex items-center justify-center">
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[380px] aspect-square rounded-full bg-white/5 mix-blend-overlay blur-3xl"></div>
           <img
-            src="https://img.usecurling.com/p/800/1000?q=elegant%20wedding%20cake&color=pink"
+            src={heroImage}
             alt="Bolo elegante"
             className="w-full max-w-[360px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
@@ -68,7 +86,7 @@ export const Hero = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1"
+                stroke-width="1"
               >
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>

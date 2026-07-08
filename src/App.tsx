@@ -11,7 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfUse from './pages/TermsOfUse'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
-import AdminLeads from './pages/AdminLeads'
+import AdminSettings from './pages/AdminSettings'
 import AdminPortfolio from './pages/AdminPortfolio'
 import { ProtectedRoute } from './components/admin/ProtectedRoute'
 import { AuthProvider } from './hooks/use-auth'
@@ -46,8 +46,8 @@ const App = () => (
               </ProtectedRoute>
             }
           >
-            <Route index element={<Navigate to="/admin/leads" replace />} />
-            <Route path="leads" element={<AdminLeads />} />
+            <Route index element={<Navigate to="/admin/settings" replace />} />
+            <Route path="settings" element={<AdminSettings />} />
             <Route path="portfolio" element={<AdminPortfolio />} />
           </Route>
           <Route path="*" element={<NotFound />} />
