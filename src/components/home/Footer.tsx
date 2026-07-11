@@ -24,13 +24,13 @@ export const Footer = () => {
                 <img
                   src={logoUrl}
                   alt="Ateliê Andressa Nicolau"
-                  className="h-16 md:h-20 w-auto mb-4 object-contain"
+                  className="h-20 md:h-24 w-auto mb-4 object-contain mix-blend-multiply"
                 />
               ) : (
                 <img
                   src={logoImg}
                   alt="Ateliê Andressa Nicolau"
-                  className="h-16 md:h-20 w-auto mb-4 object-contain rounded-md shadow-sm"
+                  className="h-20 md:h-24 w-auto mb-4 object-contain"
                 />
               )}
             </div>

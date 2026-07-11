@@ -77,13 +77,13 @@ const NavBar = () => {
             <img
               src={logoUrl}
               alt="Ateliê Andressa Nicolau"
-              className="h-12 md:h-14 w-auto object-contain"
+              className="h-14 md:h-16 w-auto object-contain mix-blend-multiply"
             />
           ) : (
             <img
               src={logoImg}
               alt="Ateliê Andressa Nicolau"
-              className="h-12 md:h-14 w-auto object-contain rounded-sm shadow-sm"
+              className="h-14 md:h-16 w-auto object-contain"
             />
           )}
         </a>
