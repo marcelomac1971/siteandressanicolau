@@ -9,27 +9,39 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { WHATSAPP_BASE_LINK, WHATSAPP_PHONE_DISPLAY } from '@/lib/whatsapp'
+import { useSiteSettings } from '@/hooks/use-site-settings'
 
 export const Footer = () => {
+  const { logoUrl, contactEmail } = useSiteSettings()
   return (
     <footer id="contato" className="w-full bg-[#635B56] text-white pt-20 pb-8">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="md:col-span-4 flex flex-col items-start md:items-start text-center md:text-left">
             <div className="flex flex-col items-center md:items-start mb-6">
-              <span className="text-sm tracking-widest font-light mb-1">
-                Ateliê
-              </span>
-              <span className="text-3xl font-serif tracking-tight">
-                Andressa Nicolau
-              </span>
-              <div className="flex items-center gap-2 mt-2">
-                <div className="h-[1px] w-8 bg-white/30"></div>
-                <span className="text-[8px] uppercase tracking-widest text-white/50">
-                  Bolos e Doces Personalizados
-                </span>
-                <div className="h-[1px] w-8 bg-white/30"></div>
-              </div>
+              {logoUrl ? (
+                <img
+                  src={logoUrl}
+                  alt="Ateliê Andressa Nicolau"
+                  className="h-16 md:h-20 w-auto mb-4"
+                />
+              ) : (
+                <>
+                  <span className="text-sm tracking-widest font-light mb-1">
+                    Ateliê
+                  </span>
+                  <span className="text-3xl font-serif tracking-tight">
+                    Andressa Nicolau
+                  </span>
+                  <div className="flex items-center gap-2 mt-2">
+                    <div className="h-[1px] w-8 bg-white/30"></div>
+                    <span className="text-[8px] uppercase tracking-widest text-white/50">
+                      Bolos e Doces Personalizados
+                    </span>
+                    <div className="h-[1px] w-8 bg-white/30"></div>
+                  </div>
+                </>
+              )}
             </div>
             <p className="text-white/60 font-light text-xs max-w-[250px] mb-8 leading-relaxed">
               Sabores transformados em doces memoráveis.
@@ -103,10 +115,10 @@ export const Footer = () => {
               <li className="flex items-center gap-4">
                 <Mail className="w-4 h-4 opacity-50 shrink-0" />
                 <a
-                  href="mailto:contato@atelieandressanicolau.com.br"
+                  href={`mailto:${contactEmail}`}
                   className="hover:text-white transition-colors"
                 >
-                  contato@atelieandressanicolau.com.br
+                  {contactEmail}
                 </a>
               </li>
               <li className="flex items-center gap-4">

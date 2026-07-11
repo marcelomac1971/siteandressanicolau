@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import { whatsappLink } from '@/lib/whatsapp'
+import { useSiteSettings } from '@/hooks/use-site-settings'
 import {
   Sheet,
   SheetContent,
@@ -18,6 +19,7 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
+  const { logoUrl } = useSiteSettings()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -68,19 +70,29 @@ const NavBar = () => {
         <a
           href="#inicio"
           onClick={(e) => handleNavClick(e, '#inicio')}
-          className="flex flex-col items-center text-white hover:text-white/80 transition-colors"
+          className="flex items-center transition-opacity hover:opacity-80"
         >
-          <span className="text-sm tracking-widest font-light mb-1">
-            Ateliê
-          </span>
-          <span className="text-2xl md:text-3xl font-serif tracking-tight">
-            Andressa Nicolau
-          </span>
-          <div className="flex items-center gap-2 mt-1">
-            <div className="h-[1px] w-8 bg-white/40"></div>
-            <Heart className="w-3 h-3 text-white/60" />
-            <div className="h-[1px] w-8 bg-white/40"></div>
-          </div>
+          {logoUrl ? (
+            <img
+              src={logoUrl}
+              alt="Ateliê Andressa Nicolau"
+              className="h-12 md:h-14 w-auto"
+            />
+          ) : (
+            <div className="flex flex-col items-center text-white">
+              <span className="text-sm tracking-widest font-light mb-1">
+                Ateliê
+              </span>
+              <span className="text-2xl md:text-3xl font-serif tracking-tight">
+                Andressa Nicolau
+              </span>
+              <div className="flex items-center gap-2 mt-1">
+                <div className="h-[1px] w-8 bg-white/40"></div>
+                <Heart className="w-3 h-3 text-white/60" />
+                <div className="h-[1px] w-8 bg-white/40"></div>
+              </div>
+            </div>
+          )}
         </a>
 
         {/* Desktop Navigation */}

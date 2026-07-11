@@ -25,6 +25,9 @@ export const getSetting = async (key: string): Promise<SiteSetting | null> => {
 export const updateSetting = (id: string, data: FormData) =>
   pb.collection('site_settings').update(id, data)
 
+export const createSetting = (data: FormData) =>
+  pb.collection('site_settings').create<SiteSetting>(data)
+
 export function getSettingImageUrl(setting: SiteSetting): string | null {
   if (!setting.content_image) return null
   const base = pb.baseURL.replace(/\/$/, '')

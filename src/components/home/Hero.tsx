@@ -11,7 +11,7 @@ export const Hero = () => {
 
   useEffect(() => {
     const loadHero = async () => {
-      const setting = await getSetting('hero_section')
+      const setting = await getSetting('hero_image')
       if (setting) {
         const url = getSettingImageUrl(setting)
         if (url) setHeroImage(url)

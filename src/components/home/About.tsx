@@ -14,12 +14,13 @@ export const About = () => {
 
   useEffect(() => {
     const loadAbout = async () => {
-      const setting = await getSetting('about_section')
-      if (setting) {
-        const url = getSettingImageUrl(setting)
+      const imageSetting = await getSetting('about_image')
+      if (imageSetting) {
+        const url = getSettingImageUrl(imageSetting)
         if (url) setAboutImage(url)
-        if (setting.content_text) setAboutText(setting.content_text)
       }
+      const textSetting = await getSetting('about_text')
+      if (textSetting?.content_text) setAboutText(textSetting.content_text)
     }
     loadAbout()
   }, [])
