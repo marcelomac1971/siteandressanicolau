@@ -10,7 +10,7 @@ import {
 import { Link } from 'react-router-dom'
 import { WHATSAPP_BASE_LINK, WHATSAPP_PHONE_DISPLAY } from '@/lib/whatsapp'
 import { useSiteSettings } from '@/hooks/use-site-settings'
-import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-e8b1f.jpeg'
+import logoImg from '@/assets/image-d9dd5.png'
 
 export const Footer = () => {
   const { logoUrl, contactEmail } = useSiteSettings()
@@ -24,13 +24,13 @@ export const Footer = () => {
                 <img
                   src={logoUrl}
                   alt="Ateliê Andressa Nicolau"
-                  className="h-28 md:h-36 w-auto mb-4 object-contain mix-blend-multiply [clip-path:inset(2%)]"
+                  className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               ) : (
                 <img
                   src={logoImg}
                   alt="Ateliê Andressa Nicolau"
-                  className="h-28 md:h-36 w-auto mb-4 object-contain [clip-path:inset(4%)]"
+                  className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               )}
             </div>
