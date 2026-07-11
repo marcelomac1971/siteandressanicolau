@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import { whatsappLink } from '@/lib/whatsapp'
 import { useSiteSettings } from '@/hooks/use-site-settings'
-import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-71267.jpeg'
+import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-e8b1f.jpeg'
 import {
   Sheet,
   SheetContent,
@@ -77,15 +77,15 @@ const NavBar = () => {
             <img
               src={logoUrl}
               alt="Ateliê Andressa Nicolau"
-              className="h-14 md:h-16 w-auto object-contain mix-blend-multiply"
+              className="h-20 md:h-24 w-auto object-contain mix-blend-multiply [clip-path:inset(2%)]"
             />
           ) : (
             <img
               src={logoImg}
               alt="Ateliê Andressa Nicolau"
-              className="h-14 md:h-16 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain [clip-path:inset(4%)]"
             />
-          )}
+          )}{' '}
         </a>
 
         {/* Desktop Navigation */}
