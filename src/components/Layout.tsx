@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import { whatsappLink } from '@/lib/whatsapp'
 import { useSiteSettings } from '@/hooks/use-site-settings'
+import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-71267.jpeg'
 import {
   Sheet,
   SheetContent,
@@ -76,22 +77,14 @@ const NavBar = () => {
             <img
               src={logoUrl}
               alt="Ateliê Andressa Nicolau"
-              className="h-12 md:h-14 w-auto"
+              className="h-12 md:h-14 w-auto object-contain"
             />
           ) : (
-            <div className="flex flex-col items-center text-white">
-              <span className="text-sm tracking-widest font-light mb-1">
-                Ateliê
-              </span>
-              <span className="text-2xl md:text-3xl font-serif tracking-tight">
-                Andressa Nicolau
-              </span>
-              <div className="flex items-center gap-2 mt-1">
-                <div className="h-[1px] w-8 bg-white/40"></div>
-                <Heart className="w-3 h-3 text-white/60" />
-                <div className="h-[1px] w-8 bg-white/40"></div>
-              </div>
-            </div>
+            <img
+              src={logoImg}
+              alt="Ateliê Andressa Nicolau"
+              className="h-12 md:h-14 w-auto object-contain rounded-sm shadow-sm"
+            />
           )}
         </a>
 

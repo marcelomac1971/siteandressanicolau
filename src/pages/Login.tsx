@@ -4,7 +4,8 @@ import { useAuth } from '@/hooks/use-auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowLeft, Loader2 } from 'lucide-react'
+import { ArrowLeft, Loader2 } from 'lucide-react'
+import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-71267.jpeg'
 import { toast } from 'sonner'
 
 export default function Login() {
@@ -36,19 +37,13 @@ export default function Login() {
       <div className="w-full max-w-md">
         <Link
           to="/"
-          className="flex flex-col items-center text-white mb-8 hover:text-white/80 transition-colors"
+          className="flex flex-col items-center mb-8 hover:opacity-80 transition-opacity"
         >
-          <span className="text-sm tracking-widest font-light mb-1">
-            Ateliê
-          </span>
-          <span className="text-3xl font-serif tracking-tight">
-            Andressa Nicolau
-          </span>
-          <div className="flex items-center gap-2 mt-1">
-            <div className="h-[1px] w-8 bg-white/40"></div>
-            <Heart className="w-3 h-3 text-white/60" />
-            <div className="h-[1px] w-8 bg-white/40"></div>
-          </div>
+          <img
+            src={logoImg}
+            alt="Ateliê Andressa Nicolau"
+            className="h-24 w-auto rounded-md shadow-md"
+          />
         </Link>
 
         <div className="bg-background rounded-2xl shadow-xl p-8">
