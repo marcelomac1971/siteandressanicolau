@@ -3,8 +3,14 @@ import { ReactNode } from 'react'
 import { useAuth } from '@/hooks/use-auth'
 import { Loader2 } from 'lucide-react'
 
-export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
-  const { isAuthenticated, loading } = useAuth()
+export const ProtectedRoute = ({
+  children,
+  skipPasswordChange = false,
+}: {
+  children: ReactNode
+  skipPasswordChange?: boolean
+}) => {
+  const { isAuthenticated, loading, requiresPasswordChange } = useAuth()
 
   if (loading) {
     return (
@@ -16,6 +22,10 @@ export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />
+  }
+
+  if (requiresPasswordChange && !skipPasswordChange) {
+    return <Navigate to="/change-password" replace />
   }
 
   return <>{children}</>

@@ -10,6 +10,9 @@ import Gallery from './pages/Gallery'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfUse from './pages/TermsOfUse'
 import Login from './pages/Login'
+import ChangePassword from './pages/ChangePassword'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 import Admin from './pages/Admin'
 import AdminSettings from './pages/AdminSettings'
 import AdminPortfolio from './pages/AdminPortfolio'
@@ -38,6 +41,16 @@ const App = () => (
             <Route path="/termos-de-uso" element={<TermsOfUse />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route
+            path="/change-password"
+            element={
+              <ProtectedRoute skipPasswordChange>
+                <ChangePassword />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin"
             element={
