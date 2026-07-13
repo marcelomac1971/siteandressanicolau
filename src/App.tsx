@@ -16,6 +16,7 @@ import ResetPassword from './pages/ResetPassword'
 import Admin from './pages/Admin'
 import AdminSettings from './pages/AdminSettings'
 import AdminPortfolio from './pages/AdminPortfolio'
+import AdminLeads from './pages/AdminLeads'
 import { ProtectedRoute } from './components/admin/ProtectedRoute'
 import { AuthProvider } from './hooks/use-auth'
 
@@ -62,6 +63,7 @@ const App = () => (
             <Route index element={<Navigate to="/admin/settings" replace />} />
             <Route path="settings" element={<AdminSettings />} />
             <Route path="portfolio" element={<AdminPortfolio />} />
+            <Route path="leads" element={<AdminLeads />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

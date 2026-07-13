@@ -1,11 +1,14 @@
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks/use-auth'
+import { useSiteSettings } from '@/hooks/use-site-settings'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, LogOut, Settings, Image } from 'lucide-react'
+import { ArrowLeft, LogOut, Settings, Image, Inbox } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import logoImg from '@/assets/image-d9dd5.png'
 
 export default function Admin() {
   const { user, signOut } = useAuth()
+  const { logoUrl } = useSiteSettings()
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -17,6 +20,7 @@ export default function Admin() {
   const navItems = [
     { to: '/admin/settings', label: 'Configurações', icon: Settings },
     { to: '/admin/portfolio', label: 'Portfólio', icon: Image },
+    { to: '/admin/leads', label: 'Orçamentos', icon: Inbox },
   ]
 
   return (
@@ -24,7 +28,16 @@ export default function Admin() {
       <header className="border-b bg-card sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="h-16 flex items-center justify-between">
-            <h1 className="text-lg font-serif">Painel Administrativo</h1>
+            <div className="flex items-center gap-3">
+              <img
+                src={logoUrl || logoImg}
+                alt="Ateliê Andressa Nicolau"
+                className="h-10 w-auto object-contain"
+              />
+              <h1 className="text-lg font-serif hidden sm:block">
+                Painel Administrativo
+              </h1>
+            </div>
             <div className="flex items-center gap-2 md:gap-4">
               <span className="text-sm text-muted-foreground hidden md:block">
                 {user?.name || 'Admin'}
