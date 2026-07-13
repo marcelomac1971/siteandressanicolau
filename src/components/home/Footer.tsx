@@ -23,20 +23,25 @@ export const Footer = () => {
               {logoUrl ? (
                 <img
                   src={logoUrl}
-                  alt="Atêlie Andressa Nicolau"
+                  alt="Ateliê Andressa Nicolau"
                   className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               ) : (
                 <img
                   src={logoImg}
-                  alt="Atêlie Andressa Nicolau"
+                  alt="Ateliê Andressa Nicolau"
                   className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               )}
             </div>
-            <p className="text-white/60 font-light text-xs max-w-[250px] mb-8 leading-relaxed">
-              Sabores transformados em doces memoráveis.
-            </p>{' '}
+            <div className="flex flex-col mb-8">
+              <span className="text-white/80 font-serif text-[10px] tracking-widest uppercase mb-1">
+                Bolos e doces personalizados
+              </span>
+              <p className="text-white font-serif font-bold text-sm max-w-[250px] leading-relaxed">
+                Sabores transformados em doces memórias
+              </p>
+            </div>
             <div className="flex gap-4 opacity-80">
               <a
                 href="https://www.instagram.com/atelieandressanicolau/"
@@ -145,7 +150,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-[10px] uppercase tracking-wider font-light">
-          <p>© 2024 Atêlie Andressa Nicolau. Todos os direitos reservados.</p>
+          <p>© 2024 Ateliê Andressa Nicolau. Todos os direitos reservados.</p>
           <div className="flex gap-6">
             <Link
               to="/politica-de-privacidade"

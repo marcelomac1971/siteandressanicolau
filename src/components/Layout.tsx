@@ -64,7 +64,7 @@ const NavBar = () => {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
           ? 'bg-secondary/95 backdrop-blur-md shadow-sm py-4'
-          : 'bg-transparent py-6',
+          : 'bg-secondary py-6',
       )}
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -76,13 +76,13 @@ const NavBar = () => {
           {logoUrl ? (
             <img
               src={logoUrl}
-              alt="Atêlie Andressa Nicolau"
+              alt="Ateliê Andressa Nicolau"
               className="h-24 md:h-28 w-auto object-contain"
             />
           ) : (
             <img
               src={logoImg}
-              alt="Atêlie Andressa Nicolau"
+              alt="Ateliê Andressa Nicolau"
               className="h-24 md:h-28 w-auto object-contain"
             />
           )}{' '}

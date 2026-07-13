@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { getSetting, getSettingImageUrl } from '@/services/site-settings'
+import { whatsappLink } from '@/lib/whatsapp'
 
 const DEFAULT_HERO_IMAGE =
   'https://img.usecurling.com/p/800/1000?q=elegant%20wedding%20cake&color=pink'
@@ -20,34 +21,21 @@ export const Hero = () => {
     loadHero()
   }, [])
 
-  const handleScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
-    e.preventDefault()
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section
       id="inicio"
-      className="relative w-full min-h-screen bg-secondary flex items-center pt-24 pb-16 md:pt-0 md:pb-0"
+      className="relative w-full min-h-screen bg-background flex items-center pt-32 pb-16 md:pt-32 md:pb-16"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-white mt-12 md:mt-0">
-          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-white/60 font-sans mb-4">
+          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-white/80 font-sans mb-4">
             DETALHES QUE ENCANTAM
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal">
-            Bolos que contam histórias.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal text-white">
+            Seu momento merece uma criação única
           </h1>
-          <p className="text-sm md:text-base lg:text-lg italic text-white/80 font-serif leading-[1.3] mb-8 max-w-md">
-            Transformando simples momentos em memórias inesquecíveis
-          </p>
-
-          <p className="text-sm md:text-base text-white/80 font-light max-w-md mb-10 leading-relaxed">
-            Nossos produtos são exclusivos e personalizados, produzidos com
-            insumos selecionados, garantindo sabor e acabamento impecável.
+          <p className="text-sm md:text-base lg:text-lg text-white/90 font-sans font-light leading-[1.3] mb-8 max-w-md">
+            Vamos criar algo inesquecível para celebrar!
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -57,12 +45,13 @@ export const Hero = () => {
               className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
             >
               <a
-                href="#produtos"
-                onClick={(e) => handleScroll(e, '#produtos')}
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3"
               >
-                CONHEÇA NOSSOS BOLOS
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                FAÇA SEU ORÇAMENTO
+                <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </a>
             </Button>
           </div>
