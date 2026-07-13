@@ -378,7 +378,7 @@ export function AIChatWidget() {
                 </div>
                 <div className="bg-white border border-[#d8b4a0]/20 p-3 rounded-2xl rounded-tl-sm text-sm shadow-sm text-gray-700 leading-relaxed">
                   {renderMessageContent(
-                    'Olá! Sou a assistente virtual do Ateliê Andressa Nicolau. Como posso te ajudar a criar memórias deliciosas hoje?',
+                    'Olá! Sou a assistente virtual do Atêlie Andressa Nicolau. Como posso te ajudar a criar memórias deliciosas hoje?',
                   )}
                 </div>
               </div>

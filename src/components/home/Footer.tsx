@@ -23,13 +23,13 @@ export const Footer = () => {
               {logoUrl ? (
                 <img
                   src={logoUrl}
-                  alt="Ateliê Andressa Nicolau"
+                  alt="Atêlie Andressa Nicolau"
                   className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               ) : (
                 <img
                   src={logoImg}
-                  alt="Ateliê Andressa Nicolau"
+                  alt="Atêlie Andressa Nicolau"
                   className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               )}
@@ -145,7 +145,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-[10px] uppercase tracking-wider font-light">
-          <p>© 2024 Ateliê Andressa Nicolau. Todos os direitos reservados.</p>
+          <p>© 2024 Atêlie Andressa Nicolau. Todos os direitos reservados.</p>
           <div className="flex gap-6">
             <Link
               to="/politica-de-privacidade"

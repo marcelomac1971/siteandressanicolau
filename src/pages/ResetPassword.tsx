@@ -61,7 +61,7 @@ export default function ResetPassword() {
         >
           <img
             src={logoImg}
-            alt="Ateliê Andressa Nicolau"
+            alt="Atêlie Andressa Nicolau"
             className="h-24 w-auto rounded-md shadow-md"
           />
         </Link>

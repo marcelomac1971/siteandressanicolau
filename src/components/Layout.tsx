@@ -76,13 +76,13 @@ const NavBar = () => {
           {logoUrl ? (
             <img
               src={logoUrl}
-              alt="Ateliê Andressa Nicolau"
+              alt="Atêlie Andressa Nicolau"
               className="h-24 md:h-28 w-auto object-contain"
             />
           ) : (
             <img
               src={logoImg}
-              alt="Ateliê Andressa Nicolau"
+              alt="Atêlie Andressa Nicolau"
               className="h-24 md:h-28 w-auto object-contain"
             />
           )}{' '}

@@ -31,7 +31,7 @@ export default function Admin() {
             <div className="flex items-center gap-3">
               <img
                 src={logoUrl || logoImg}
-                alt="Ateliê Andressa Nicolau"
+                alt="Atêlie Andressa Nicolau"
                 className="h-10 w-auto object-contain"
               />
               <h1 className="text-lg font-serif hidden sm:block">

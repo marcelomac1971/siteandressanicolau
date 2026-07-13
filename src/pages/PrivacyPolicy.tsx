@@ -16,7 +16,7 @@ const sections: Section[] = [
   {
     title: '2. INFORMAÇÕES DA EMPRESA',
     list: [
-      { label: 'Nome:', value: 'Ateliê Andressa Nicolau' },
+      { label: 'Nome:', value: 'Atêlie Andressa Nicolau' },
       { label: 'Segmento:', value: 'Bolos e doces personalizados' },
       { label: 'Localização:', value: 'São Paulo - SP' },
       { label: 'WhatsApp:', value: '(11) 98175-6815' },
@@ -97,7 +97,7 @@ export default function PrivacyPolicy() {
             Legal
           </span>
           <h1 className="text-3xl md:text-5xl font-serif text-foreground mb-4 font-normal leading-tight">
-            POLÍTICA DE PRIVACIDADE — Ateliê Andressa Nicolau
+            POLÍTICA DE PRIVACIDADE — Atêlie Andressa Nicolau
           </h1>
           <p className="text-sm md:text-base text-muted-foreground font-medium max-w-2xl leading-relaxed">
             Diretrizes de Proteção de Dados e Privacidade nos termos da LGPD
@@ -142,7 +142,7 @@ export default function PrivacyPolicy() {
         <div className="h-[1px] w-full bg-border mt-12 mb-8" />
 
         <p className="text-xs md:text-sm text-muted-foreground font-medium text-center leading-relaxed uppercase tracking-wide">
-          Este documento é a Política de Privacidade do Ateliê Andressa Nicolau
+          Este documento é a Política de Privacidade do Atêlie Andressa Nicolau
           — não confundir com os Termos de Uso.
         </p>
         <p className="text-xs md:text-sm text-muted-foreground font-light text-center mt-3">

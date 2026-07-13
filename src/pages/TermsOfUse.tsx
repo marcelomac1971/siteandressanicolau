@@ -5,12 +5,12 @@ const sections = [
   {
     title: '1. IDENTIFICAÇÃO DO DOCUMENTO',
     content:
-      'Este documento são os TERMOS DE USO do site do Ateliê Andressa Nicolau. Ele define as regras e condições para uso do site. NÃO é uma Política de Privacidade.',
+      'Este documento são os TERMOS DE USO do site do Atêlie Andressa Nicolau. Ele define as regras e condições para uso do site. NÃO é uma Política de Privacidade.',
   },
   {
     title: '2. INFORMAÇÕES DA EMPRESA',
     list: [
-      { label: 'Nome:', value: 'Ateliê Andressa Nicolau' },
+      { label: 'Nome:', value: 'Atêlie Andressa Nicolau' },
       { label: 'Segmento:', value: 'Bolos e doces personalizados' },
       { label: 'Localização:', value: 'São Paulo - SP' },
       { label: 'WhatsApp:', value: '(11) 98175-6815' },
@@ -26,7 +26,7 @@ const sections = [
   {
     title: '4. OBJETO DO SITE',
     content:
-      'O site apresenta o portfólio do Ateliê, exibe depoimentos e disponibiliza canais de contato para orçamentos. O site NÃO realiza vendas diretas online. Todo o processo de orçamento e fechamento é realizado via WhatsApp ou Instagram.',
+      'O site apresenta o portfólio do Atêlie, exibe depoimentos e disponibiliza canais de contato para orçamentos. O site NÃO realiza vendas diretas online. Todo o processo de orçamento e fechamento é realizado via WhatsApp ou Instagram.',
   },
   {
     title: '5. PROCESSO DE ORÇAMENTO E PEDIDO',
@@ -46,7 +46,7 @@ const sections = [
   {
     title: '6. PROPRIEDADE INTELECTUAL',
     content:
-      'Todas as fotos, textos, logotipos e conteúdos do site são de propriedade do Ateliê Andressa Nicolau. É proibida a reprodução sem autorização prévia por escrito.',
+      'Todas as fotos, textos, logotipos e conteúdos do site são de propriedade do Atêlie Andressa Nicolau. É proibida a reprodução sem autorização prévia por escrito.',
   },
   {
     title: '7. POLÍTICA DE CANCELAMENTO',
@@ -94,7 +94,7 @@ export default function TermsOfUse() {
             Legal
           </span>
           <h1 className="text-3xl md:text-5xl font-serif text-foreground mb-4 font-normal leading-tight">
-            TERMOS DE USO — Ateliê Andressa Nicolau
+            TERMOS DE USO — Atêlie Andressa Nicolau
           </h1>
           <p className="text-sm md:text-base text-muted-foreground font-medium max-w-2xl leading-relaxed">
             Regras e condições para acesso ao site e solicitação de orçamentos
@@ -139,7 +139,7 @@ export default function TermsOfUse() {
         <div className="h-[1px] w-full bg-border mt-12 mb-8" />
 
         <p className="text-xs md:text-sm text-muted-foreground font-medium text-center leading-relaxed uppercase tracking-wide">
-          Este documento são os Termos de Uso do Ateliê Andressa Nicolau — não
+          Este documento são os Termos de Uso do Atêlie Andressa Nicolau — não
           confundir com Política de Privacidade.
         </p>
         <p className="text-xs md:text-sm text-muted-foreground font-light text-center mt-3">
