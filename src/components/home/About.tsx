@@ -40,7 +40,7 @@ export const About = () => {
 
           <div className="flex flex-col justify-center order-1 md:order-2">
             <div className="flex items-center gap-2 mb-6 opacity-80 uppercase tracking-widest text-xs font-light">
-              <span>Sobre o Atêlie</span>
+              <span>Sobre o Ateliê</span>
               <Heart className="w-3 h-3" />
             </div>
 

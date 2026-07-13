@@ -6,13 +6,13 @@
 
 @layer base {
   :root {
-    --background: 1 35% 74%;
+    --background: 1 45% 78%;
     --foreground: 0 0% 100%;
 
-    --card: 1 35% 74%;
+    --card: 1 45% 78%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 1 35% 74%;
+    --popover: 1 45% 78%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 24 7% 36%;
@@ -38,12 +38,12 @@
   }
 
   .dark {
-    --background: 1 35% 74%;
+    --background: 1 45% 78%;
     --foreground: 0 0% 100%;
 
-    --card: 1 35% 74%;
+    --card: 1 45% 78%;
     --card-foreground: 0 0% 100%;
-    --popover: 1 35% 74%;
+    --popover: 1 45% 78%;
     --popover-foreground: 0 0% 100%;
     --primary: 24 7% 36%;
     --primary-foreground: 0 0% 100%;
@@ -134,4 +134,10 @@
   .link-btn:hover::after {
     @apply scale-x-100 origin-left;
   }
+}
+
+/* Brand pink replaces white section backgrounds — two-tone design (pink + gray) */
+section.bg-white,
+main > div > div.bg-white {
+  background-color: hsl(var(--background));
 }
