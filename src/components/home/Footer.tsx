@@ -24,12 +24,18 @@ export const Footer = () => {
                 <img
                   src={logoUrl}
                   alt="Ateliê Andressa Nicolau"
+                  width="192"
+                  height="192"
+                  loading="lazy"
                   className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               ) : (
                 <img
                   src={logoImg}
                   alt="Ateliê Andressa Nicolau"
+                  width="192"
+                  height="192"
+                  loading="lazy"
                   className="h-40 md:h-48 w-auto mb-4 object-contain"
                 />
               )}

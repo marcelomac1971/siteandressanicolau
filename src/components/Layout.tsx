@@ -79,6 +79,7 @@ const NavBar = () => {
               alt="Ateliê Andressa Nicolau"
               width="120"
               height="96"
+              loading="lazy"
               className="h-20 md:h-24 w-auto object-contain"
             />
           ) : (
@@ -87,6 +88,7 @@ const NavBar = () => {
               alt="Ateliê Andressa Nicolau"
               width="120"
               height="96"
+              loading="lazy"
               className="h-20 md:h-24 w-auto object-contain"
             />
           )}
