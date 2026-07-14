@@ -50,17 +50,16 @@ export const Portfolio = () => {
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <div className="flex items-center gap-2 mb-4 opacity-70 uppercase tracking-widest text-xs font-light text-foreground">
+            <div className="flex items-center gap-2 mb-4 opacity-85 uppercase tracking-widest text-xs font-light text-foreground">
               <span>Nossas Criações</span>
               <Heart strokeWidth={1} className="w-3 h-3" />
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] font-normal text-foreground">
-              Inspirações para celebrar
-              <br />
-              <span className="italic text-foreground/80">
-                momentos inesquecíveis.
-              </span>
+              Filosofia do Ateliê
             </h2>
+            <p className="text-xl md:text-2xl font-serif italic text-foreground/90 mt-2">
+              Inspirações para celebrar momentos inesquecíveis.
+            </p>
           </div>
 
           <Button
@@ -93,6 +92,10 @@ export const Portfolio = () => {
                   <img
                     src={getPortfolioImage(item)}
                     alt={item.category}
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>

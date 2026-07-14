@@ -34,25 +34,28 @@ export const About = () => {
             <img
               src={aboutImage}
               alt="Andressa Nicolau decorando bolo no Ateliê"
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover relative z-10"
             />
           </div>
 
           <div className="flex flex-col justify-center order-1 md:order-2">
-            <div className="flex items-center gap-2 mb-6 opacity-70 uppercase tracking-widest text-xs font-light">
+            <div className="flex items-center gap-2 mb-6 opacity-85 uppercase tracking-widest text-xs font-light">
               <span>Sobre o Ateliê</span>
               <Heart className="w-3 h-3" />
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] mb-8 font-normal">
-              Paixão que virou criação.
-              <br />
-              <span className="italic text-foreground/80">
-                Sabor que fica na memória.
-              </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] mb-4 font-normal">
+              Conheça o Ateliê
             </h2>
+            <p className="text-xl md:text-2xl font-serif italic text-foreground/90 mb-8">
+              Paixão que virou criação. Sabor que fica na memória.
+            </p>
 
-            <div className="space-y-6 text-foreground/70 text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
+            <div className="space-y-6 text-foreground/85 text-sm md:text-base font-light leading-relaxed mb-10 max-w-lg">
               <p className="whitespace-pre-wrap">{aboutText}</p>
             </div>
           </div>

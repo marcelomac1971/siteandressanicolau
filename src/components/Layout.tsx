@@ -29,11 +29,11 @@ const NavBar = () => {
   }, [])
 
   const navLinks = [
-    { name: 'HOME', href: '#inicio' },
-    { name: 'SOBRE', href: '#sobre' },
-    { name: 'BOLOS', href: '#produtos' },
-    { name: 'DOCES', href: '#produtos' },
-    { name: 'CONTATO', href: '#contato' },
+    { name: 'HOME', href: '#inicio', ariaLabel: 'Página inicial' },
+    { name: 'SOBRE', href: '#sobre', ariaLabel: 'Conheça o Ateliê' },
+    { name: 'BOLOS', href: '#produtos', ariaLabel: 'Conheça nossos bolos' },
+    { name: 'DOCES', href: '#produtos', ariaLabel: 'Conheça nossos doces' },
+    { name: 'CONTATO', href: '#contato', ariaLabel: 'Entre em contato' },
   ]
 
   const handleNavClick = (
@@ -77,12 +77,16 @@ const NavBar = () => {
             <img
               src={logoUrl}
               alt="Ateliê Andressa Nicolau"
+              width="120"
+              height="96"
               className="h-20 md:h-24 w-auto object-contain"
             />
           ) : (
             <img
               src={logoImg}
               alt="Ateliê Andressa Nicolau"
+              width="120"
+              height="96"
               className="h-20 md:h-24 w-auto object-contain"
             />
           )}
@@ -95,6 +99,7 @@ const NavBar = () => {
             <a
               key={link.name}
               href={link.href}
+              aria-label={link.ariaLabel}
               onClick={(e) => handleNavClick(e, link.href)}
               className="hover:text-white transition-colors"
             >
@@ -114,6 +119,7 @@ const NavBar = () => {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Faça seu orçamento"
             className="inline-flex items-center rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap transition-colors"
           >
             Faça seu orçamento <MessageCircle className="w-4 h-4 ml-2" />
@@ -144,6 +150,7 @@ const NavBar = () => {
                   <SheetClose asChild key={link.name}>
                     <a
                       href={link.href}
+                      aria-label={link.ariaLabel}
                       onClick={(e) => handleNavClick(e, link.href)}
                       className="text-2xl font-serif text-white/80 hover:text-white transition-colors"
                     >
@@ -167,6 +174,7 @@ const NavBar = () => {
                     href={whatsappLink()}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Faça seu orçamento"
                     className="inline-flex items-center justify-center bg-accent text-accent-foreground hover:bg-accent/90 w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap transition-colors"
                   >
                     Faça seu orçamento

@@ -1,25 +1,36 @@
 import { useState, useEffect } from 'react'
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { getSetting, getSettingImageUrl } from '@/services/site-settings'
 import { whatsappLink } from '@/lib/whatsapp'
 
+const DEFAULT_HERO_IMAGE_SMALL =
+  'https://img.usecurling.com/p/400/500?q=elegant%20wedding%20cake&color=pink'
 const DEFAULT_HERO_IMAGE =
   'https://img.usecurling.com/p/800/1000?q=elegant%20wedding%20cake&color=pink'
 
 export const Hero = () => {
   const [heroImage, setHeroImage] = useState<string>(DEFAULT_HERO_IMAGE)
+  const [isCustomImage, setIsCustomImage] = useState(false)
 
   useEffect(() => {
     const loadHero = async () => {
       const setting = await getSetting('hero_image')
       if (setting) {
         const url = getSettingImageUrl(setting)
-        if (url) setHeroImage(url)
+        if (url) {
+          setHeroImage(url)
+          setIsCustomImage(true)
+        }
       }
     }
     loadHero()
   }, [])
+
+  const handleScrollToProducts = (e: React.MouseEvent) => {
+    e.preventDefault()
+    document.querySelector('#produtos')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <section
@@ -28,13 +39,13 @@ export const Hero = () => {
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-foreground mt-12 md:mt-0">
-          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-foreground/70 font-sans mb-4">
+          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-foreground/85 font-sans mb-4">
             DETALHES QUE ENCANTAM
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal text-foreground">
-            Seu momento merece uma criação única
+            Onde cada detalhe se torna inesquecível
           </h1>
-          <p className="text-sm md:text-base lg:text-lg text-foreground/80 font-sans font-light leading-[1.3] mb-8 max-w-md">
+          <p className="text-sm md:text-base lg:text-lg text-foreground/90 font-sans font-light leading-[1.3] mb-8 max-w-md">
             Vamos criar algo inesquecível para celebrar!
           </p>
 
@@ -47,10 +58,26 @@ export const Hero = () => {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Faça seu orçamento"
                 className="flex items-center gap-3"
               >
                 FAÇA SEU ORÇAMENTO
                 <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-none border-foreground/20 text-foreground hover:bg-foreground hover:text-background bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
+            >
+              <a
+                href="#produtos"
+                aria-label="Conheça nossos bolos"
+                onClick={handleScrollToProducts}
+                className="flex items-center gap-3"
+              >
+                CONHEÇA NOSSOS BOLOS
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
@@ -61,6 +88,18 @@ export const Hero = () => {
           <img
             src={heroImage}
             alt="Bolo elegante do Ateliê Andressa Nicolau"
+            width="800"
+            height="1000"
+            loading="lazy"
+            decoding="async"
+            srcSet={
+              !isCustomImage
+                ? `${DEFAULT_HERO_IMAGE_SMALL} 400w, ${DEFAULT_HERO_IMAGE} 800w`
+                : undefined
+            }
+            sizes={
+              !isCustomImage ? '(max-width: 768px) 100vw, 50vw' : undefined
+            }
             className="w-full max-w-[360px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
 

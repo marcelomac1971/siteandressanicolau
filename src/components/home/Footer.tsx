@@ -136,6 +136,7 @@ export const Footer = () => {
               <input
                 type="email"
                 placeholder="Seu melhor e-mail"
+                aria-label="Seu melhor e-mail para cadastro"
                 className="bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-xs px-4 py-3 flex-1 outline-none focus:border-white/50 transition-colors"
                 required
               />
@@ -156,13 +157,13 @@ export const Footer = () => {
               to="/politica-de-privacidade"
               className="hover:text-white/80 transition-colors"
             >
-              Política de Privacidade
+              Leia nossa Política de Privacidade
             </Link>
             <Link
               to="/termos-de-uso"
               className="hover:text-white/80 transition-colors"
             >
-              Termos de Uso
+              Leia nossos Termos de Uso
             </Link>
             <Link to="/login" className="hover:text-white/80 transition-colors">
               Área Administrativa
