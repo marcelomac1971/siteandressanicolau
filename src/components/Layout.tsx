@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import { whatsappLink } from '@/lib/whatsapp'
 import { useSiteSettings } from '@/hooks/use-site-settings'
-import logoImg from '@/assets/image-d9dd5.png'
+import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-bc01d.jpeg'
 import {
   Sheet,
   SheetContent,
@@ -67,29 +67,30 @@ const NavBar = () => {
           : 'bg-secondary py-6',
       )}
     >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 flex items-center justify-between gap-8">
         <a
           href="#inicio"
           onClick={(e) => handleNavClick(e, '#inicio')}
-          className="flex items-center transition-opacity hover:opacity-80"
+          className="flex items-center transition-opacity hover:opacity-80 shrink-0"
         >
           {logoUrl ? (
             <img
               src={logoUrl}
               alt="Ateliê Andressa Nicolau"
-              className="h-24 md:h-28 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain"
             />
           ) : (
             <img
               src={logoImg}
               alt="Ateliê Andressa Nicolau"
-              className="h-24 md:h-28 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain"
             />
-          )}{' '}
+          )}
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8 font-sans text-xs font-medium tracking-widest text-white/90">
+        <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 font-sans text-xs font-medium tracking-widest text-white/90 shrink-0">
+          {' '}
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -120,8 +121,9 @@ const NavBar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="lg:hidden shrink-0">
           <Sheet>
+            {' '}
             <SheetTrigger asChild>
               <Button
                 variant="ghost"

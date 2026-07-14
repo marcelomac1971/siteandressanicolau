@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ArrowLeft, Loader2, Eye, EyeOff } from 'lucide-react'
-import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-71267.jpeg'
+import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-bc01d.jpeg'
 import { toast } from 'sonner'
 
 export default function Login() {
@@ -52,9 +52,9 @@ export default function Login() {
         >
           <img
             src={logoImg}
-            alt="Atêlie Andressa Nicolau"
+            alt="Ateliê Andressa Nicolau"
             className="h-24 w-auto rounded-md shadow-md"
-          />
+          />{' '}
         </Link>
 
         <div className="bg-background rounded-2xl shadow-xl p-8">

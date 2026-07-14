@@ -10,7 +10,7 @@ import {
 import { Link } from 'react-router-dom'
 import { WHATSAPP_BASE_LINK, WHATSAPP_PHONE_DISPLAY } from '@/lib/whatsapp'
 import { useSiteSettings } from '@/hooks/use-site-settings'
-import logoImg from '@/assets/image-d9dd5.png'
+import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-bc01d.jpeg'
 
 export const Footer = () => {
   const { logoUrl, contactEmail } = useSiteSettings()
