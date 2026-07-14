@@ -27,22 +27,21 @@ export const Hero = () => {
       className="relative w-full min-h-screen bg-background flex items-center pt-32 pb-16 md:pt-32 md:pb-16"
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-white mt-12 md:mt-0">
-          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-white/80 font-sans mb-4">
+        <div className="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left text-foreground mt-12 md:mt-0">
+          <p className="text-sm md:text-base lg:text-lg uppercase tracking-widest text-foreground/70 font-sans mb-4">
             DETALHES QUE ENCANTAM
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.1] mb-2 font-normal text-foreground">
             Seu momento merece uma criação única
           </h1>
-          <p className="text-sm md:text-base lg:text-lg text-white/90 font-sans font-light leading-[1.3] mb-8 max-w-md">
+          <p className="text-sm md:text-base lg:text-lg text-foreground/80 font-sans font-light leading-[1.3] mb-8 max-w-md">
             Vamos criar algo inesquecível para celebrar!
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Button
-              variant="outline"
               asChild
-              className="rounded-none border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
+              className="rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-8 py-6 group border-none"
             >
               <a
                 href={whatsappLink()}
@@ -58,15 +57,15 @@ export const Hero = () => {
         </div>
 
         <div className="relative w-full md:w-1/2 h-[400px] md:h-[600px] flex items-center justify-center">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[380px] aspect-square rounded-full bg-white/5 mix-blend-overlay blur-3xl"></div>
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[380px] aspect-square rounded-full bg-foreground/5 mix-blend-overlay blur-3xl"></div>
           <img
             src={heroImage}
-            alt="Bolo elegante"
+            alt="Bolo elegante do Ateliê Andressa Nicolau"
             className="w-full max-w-[360px] h-auto object-contain relative z-10 drop-shadow-2xl"
           />
 
-          <div className="absolute top-[10%] right-4 md:right-8 lg:right-16 w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border border-white/20 flex items-center justify-center -rotate-12 hidden md:flex bg-white/10 backdrop-blur-md animate-float z-20 shadow-lg">
-            <div className="text-white flex flex-col items-center">
+          <div className="absolute top-[10%] right-4 md:right-8 lg:right-16 w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border border-foreground/20 flex items-center justify-center -rotate-12 hidden md:flex bg-foreground/5 backdrop-blur-md animate-float z-20 shadow-lg">
+            <div className="text-foreground flex flex-col items-center">
               <span className="text-xs md:text-sm tracking-widest uppercase font-light">
                 Feito à mão
               </span>

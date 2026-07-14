@@ -61,7 +61,7 @@ export const Contact = () => {
       toast({
         title: 'Obrigada!',
         description: 'Recebemos sua mensagem e entraremos em contato em breve.',
-        className: 'bg-[#D4A5A5] text-white border-none rounded-2xl',
+        className: 'bg-primary text-white border-none rounded-2xl',
       })
       setFormData({
         name: '',
@@ -192,7 +192,7 @@ export const Contact = () => {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full rounded-full h-14 text-lg bg-[#D4A5A5] hover:bg-[#C28C8C] text-white transition-colors"
+            className="w-full rounded-full h-14 text-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-colors"
           >
             {loading ? 'Enviando...' : 'Enviar Solicitação'}
           </Button>

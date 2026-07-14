@@ -46,7 +46,7 @@ export const Portfolio = () => {
   })
 
   return (
-    <section id="produtos" className="w-full py-24 bg-background">
+    <section id="produtos" className="w-full py-24 bg-card">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>

@@ -113,7 +113,7 @@ const NavBar = () => {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-none border border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap transition-colors"
+            className="inline-flex items-center rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap transition-colors"
           >
             Faça seu orçamento <MessageCircle className="w-4 h-4 ml-2" />
           </a>
@@ -165,7 +165,7 @@ const NavBar = () => {
                     href={whatsappLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center border border-white/40 text-white hover:bg-white hover:text-secondary bg-transparent w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap transition-colors"
+                    className="inline-flex items-center justify-center bg-accent text-accent-foreground hover:bg-accent/90 w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap transition-colors"
                   >
                     Faça seu orçamento
                   </a>

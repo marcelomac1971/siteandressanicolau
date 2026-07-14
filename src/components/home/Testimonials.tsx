@@ -37,7 +37,7 @@ export const Testimonials = () => {
             }`}
           >
             <div
-              className={`bg-white text-foreground p-5 rounded-[2rem] shadow-sm relative ${
+              className={`bg-card text-foreground p-5 rounded-[2rem] shadow-sm relative ${
                 review.align === 'left' ? 'rounded-tl-sm' : 'rounded-tr-sm'
               }`}
             >

@@ -8,7 +8,7 @@ export const Cta = () => {
   }
 
   return (
-    <section className="w-full py-24 bg-primary text-white relative overflow-hidden">
+    <section className="w-full py-24 bg-primary text-foreground relative overflow-hidden">
       <div className="absolute left-0 bottom-0 opacity-10 pointer-events-none transform -translate-x-1/4 translate-y-1/4">
         <svg
           width="300"
@@ -44,15 +44,14 @@ export const Cta = () => {
           Seu momento merece uma criação única.
         </h2>
 
-        <p className="text-white/90 font-light mb-10 text-sm md:text-base">
+        <p className="text-foreground/80 font-light mb-10 text-sm md:text-base">
           Vamos criar algo inesquecível para celebrar!
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
-            variant="outline"
             onClick={handleOpenChat}
-            className="rounded-none border-white/40 text-white hover:bg-white hover:text-primary bg-transparent uppercase tracking-wider text-xs px-8 py-6 group"
+            className="rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-8 py-6 group border-none"
           >
             FAÇA SEU ORÇAMENTO
             <Bot className="w-4 h-4 ml-3 group-hover:scale-110 transition-transform" />
@@ -62,7 +61,7 @@ export const Cta = () => {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-none border-white/40 text-white hover:bg-white hover:text-primary bg-transparent uppercase tracking-wider text-xs px-8 py-6 transition-colors"
+            className="inline-flex items-center gap-3 rounded-none border-foreground/20 text-foreground hover:bg-foreground hover:text-card bg-transparent uppercase tracking-wider text-xs px-8 py-6 transition-colors"
           >
             FALAR NO WHATSAPP
             <MessageCircle className="w-4 h-4" />

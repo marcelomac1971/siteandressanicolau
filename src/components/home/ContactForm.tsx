@@ -181,7 +181,12 @@ export const ContactForm = () => {
               rows={4}
             />
           </div>
-          <Button type="submit" disabled={loading} className="w-full" size="lg">
+          <Button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+            size="lg"
+          >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin mr-2" />
             ) : (

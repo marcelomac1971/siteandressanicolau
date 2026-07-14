@@ -20,7 +20,7 @@ export const Features = () => {
   ]
 
   return (
-    <section className="w-full py-24 bg-background">
+    <section className="w-full py-24 bg-card">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8">
           {features.map((f, i) => (

@@ -18,7 +18,7 @@ export const Process = () => {
   ]
 
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-16 bg-card">
       <div className="grid md:grid-cols-3 gap-8 mb-16">
         {steps.map((step, i) => (
           <div key={i} className="flex flex-col items-center text-center px-4">

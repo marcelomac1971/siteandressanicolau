@@ -15,7 +15,7 @@ import logoImg from '@/assets/image-d9dd5.png'
 export const Footer = () => {
   const { logoUrl, contactEmail } = useSiteSettings()
   return (
-    <footer id="contato" className="w-full bg-[#635B56] text-white pt-20 pb-8">
+    <footer id="contato" className="w-full bg-secondary text-white pt-20 pb-8">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="md:col-span-4 flex flex-col items-start md:items-start text-center md:text-left">
@@ -130,7 +130,7 @@ export const Footer = () => {
             </h4>
             <p className="text-white/70 font-light text-xs mb-6">
               Cadastre-se e receba em primeira mão novidades, sabores e
-              promoções exclusivas.
+              promoções exclusivas do Ateliê.
             </p>
             <form className="flex w-full" onSubmit={(e) => e.preventDefault()}>
               <input
@@ -141,7 +141,7 @@ export const Footer = () => {
               />
               <button
                 type="submit"
-                className="bg-[#c79695] text-white px-4 py-3 hover:bg-[#b58382] transition-colors flex items-center justify-center"
+                className="bg-primary text-primary-foreground px-4 py-3 hover:bg-primary/90 transition-colors flex items-center justify-center"
               >
                 <Send className="w-4 h-4" />
               </button>
