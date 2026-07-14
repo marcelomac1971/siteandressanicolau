@@ -52,7 +52,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Button
               asChild
-              className="rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-8 py-6 group border-none"
+              className="rounded-none bg-secondary text-secondary-foreground hover:bg-secondary/90 uppercase tracking-wider text-xs px-8 py-6 group border-none"
             >
               <a
                 href={whatsappLink()}

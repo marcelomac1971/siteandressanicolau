@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp'
 import { whatsappLink } from '@/lib/whatsapp'
 import { useSiteSettings } from '@/hooks/use-site-settings'
-import logoImg from '@/assets/whatsapp-image-2026-07-10-at-21.36.31-bc01d.jpeg'
+import logoImg from '@/assets/logo-andressa-sem-borda-611c6.png'
 import {
   Sheet,
   SheetContent,
@@ -77,19 +77,19 @@ const NavBar = () => {
             <img
               src={logoUrl}
               alt="Ateliê Andressa Nicolau"
-              width="120"
-              height="96"
+              width="180"
+              height="80"
               loading="lazy"
-              className="h-20 md:h-24 w-auto object-contain"
+              className="h-16 md:h-20 max-w-[180px] md:max-w-[220px] object-contain"
             />
           ) : (
             <img
               src={logoImg}
               alt="Ateliê Andressa Nicolau"
-              width="120"
-              height="96"
+              width="180"
+              height="80"
               loading="lazy"
-              className="h-20 md:h-24 w-auto object-contain"
+              className="h-16 md:h-20 max-w-[180px] md:max-w-[220px] object-contain"
             />
           )}
         </a>
@@ -122,7 +122,7 @@ const NavBar = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Faça seu orçamento"
-            className="inline-flex items-center rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap transition-colors"
+            className="inline-flex items-center rounded-none bg-primary text-primary-foreground hover:bg-primary/90 uppercase tracking-wider text-xs px-6 py-5 whitespace-nowrap transition-colors"
           >
             Faça seu orçamento <MessageCircle className="w-4 h-4 ml-2" />
           </a>
@@ -177,7 +177,7 @@ const NavBar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Faça seu orçamento"
-                    className="inline-flex items-center justify-center bg-accent text-accent-foreground hover:bg-accent/90 w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap transition-colors"
+                    className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 w-full mt-8 h-14 tracking-widest uppercase text-xs whitespace-nowrap transition-colors"
                   >
                     Faça seu orçamento
                   </a>

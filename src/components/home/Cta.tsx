@@ -51,7 +51,7 @@ export const Cta = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             onClick={handleOpenChat}
-            className="rounded-none bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-wider text-xs px-8 py-6 group border-none"
+            className="rounded-none bg-secondary text-secondary-foreground hover:bg-secondary/90 uppercase tracking-wider text-xs px-8 py-6 group border-none"
           >
             FAÇA SEU ORÇAMENTO
             <Bot className="w-4 h-4 ml-3 group-hover:scale-110 transition-transform" />
